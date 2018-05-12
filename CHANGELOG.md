@@ -5,8 +5,9 @@
     * `lt` for `less_than`
     * `gt` for `greater_than`
     * similarly, `geq`, `leq` etc
-* Restructure examples in README to reduce verbosity
+* Restructured examples in README to reduce verbosity
 * Added `some` matcher
+* Added `has` matcher (like `contains` but for `Option` and `Result`!)
 
 ## 0.1.5 [☰](https://github.com/Valloric/hamcrest2-rust/compare/0.1.4...0.1.5)
 

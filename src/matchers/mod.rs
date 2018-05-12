@@ -15,6 +15,7 @@ pub mod compared_to;
 pub mod contains;
 pub mod equal_to;
 pub mod existing_path;
+pub mod has;
 pub mod is;
 pub mod none;
 pub mod of_len;

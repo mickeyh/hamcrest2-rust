@@ -63,6 +63,7 @@ pub mod prelude {
     pub use matchers::existing_path::existing_dir;
     pub use matchers::existing_path::existing_file;
     pub use matchers::existing_path::existing_path;
+    pub use matchers::has::has;
     pub use matchers::is::is;
     pub use matchers::is::is_not as does_not;
     pub use matchers::is::is_not as not;

@@ -17,7 +17,7 @@ pub struct IsSome<T> {
 
 impl<T> fmt::Display for IsSome<T> {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "none")
+        write!(f, "some")
     }
 }
 

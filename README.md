@@ -81,8 +81,18 @@ assert_that!(var, some());
 
 assert_that!(Some(1), some::<int>());
 
-let var2: Option<i8> = None;
-assert_that!(var2, not(some()));
+let var: Option<i8> = None;
+assert_that!(var, not(some()));
+```
+
+## has
+
+``` rust
+let var: Option<i8> = Some(5);
+assert_that!(var, has(5));
+
+let var: Result<i8, String> = Ok(5);
+assert_that!(var, has(5));
 ```
 
 ### anything

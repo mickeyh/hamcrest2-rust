@@ -18,13 +18,19 @@ pub struct EqualTo<T> {
     expected: T,
 }
 
-impl<T: fmt::Debug> fmt::Display for EqualTo<T> {
+impl<T> fmt::Display for EqualTo<T>
+where
+    T: fmt::Debug,
+{
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         self.expected.fmt(f)
     }
 }
 
-impl<T: PartialEq + fmt::Debug> Matcher<T> for EqualTo<T> {
+impl<T> Matcher<T> for EqualTo<T>
+where
+    T: PartialEq + fmt::Debug,
+{
     fn matches(&self, actual: T) -> MatchResult {
         if self.expected.eq(&actual) {
             success()
@@ -34,6 +40,9 @@ impl<T: PartialEq + fmt::Debug> Matcher<T> for EqualTo<T> {
     }
 }
 
-pub fn equal_to<T: PartialEq + fmt::Debug>(expected: T) -> EqualTo<T> {
+pub fn equal_to<T>(expected: T) -> EqualTo<T>
+where
+    T: PartialEq + fmt::Debug,
+{
     EqualTo { expected }
 }
