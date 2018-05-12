@@ -1,4 +1,4 @@
-## 0.1.6 [☰](https://github.com/Valloric/hamcrest2-rust/compare/0.1.4...0.1.5)
+## 0.1.6 [☰](https://github.com/Valloric/hamcrest2-rust/compare/0.1.5...0.1.6)
 
 * Shorter names for common matchers:
     * `eq` for `equal_to`
