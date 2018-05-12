@@ -1,5 +1,6 @@
 // Copyright 2014 Carl Lerche, Alex Crichton, Michael Gehring, Yehuda Katz
 // Copyright 2015 Carl Lerche, Alex Crichton, Robin Gloster
+// Copyright 2018 Val Markovic
 //
 // Licensed under the Apache License, Version 2.0 <LICENSE-APACHE or
 // http://www.apache.org/licenses/LICENSE-2.0> or the MIT license
@@ -58,7 +59,7 @@ impl<T, M: Matcher<T>> Matcher<T> for IsNot<T, M> {
 
 pub fn is_not<T, M: Matcher<T>>(matcher: M) -> IsNot<T, M> {
     IsNot {
-        matcher: matcher,
+        matcher,
         marker: PhantomData,
     }
 }

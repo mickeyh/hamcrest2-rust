@@ -21,7 +21,7 @@ mod existing_path {
         let path = path(env::var("TEST_EXISTS_FILE"), "./README.md");
         assert_that!(&path, is(existing_path()));
         assert_that!(&path, is(existing_file()));
-        assert_that!(&path, is_not(existing_dir()));
+        assert_that!(&path, not(existing_dir()));
     }
 
     #[test]
@@ -29,15 +29,15 @@ mod existing_path {
         let path = path(env::var("TEST_EXISTS_DIR"), "./target");
         assert_that!(&path, is(existing_path()));
         assert_that!(&path, is(existing_dir()));
-        assert_that!(&path, is_not(existing_file()));
+        assert_that!(&path, not(existing_file()));
     }
 
     #[test]
     fn a_nonexisting_path() {
         let path = path(env::var("TEST_EXISTS_NONE"), "./zomg.txt");
-        assert_that!(&path, is_not(existing_path()));
-        assert_that!(&path, is_not(existing_file()));
-        assert_that!(&path, is_not(existing_dir()));
+        assert_that!(&path, not(existing_path()));
+        assert_that!(&path, not(existing_file()));
+        assert_that!(&path, not(existing_dir()));
     }
 
     pub fn path(path: Result<String, env::VarError>, default: &str) -> PathBuf {

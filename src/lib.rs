@@ -44,10 +44,15 @@ pub mod prelude {
     pub use core::Matcher as HamcrestMatcher;
     pub use matchers::close_to::close_to;
     pub use matchers::compared_to::less_than;
+    pub use matchers::compared_to::less_than as lt;
     pub use matchers::compared_to::less_than_or_equal_to;
+    pub use matchers::compared_to::less_than_or_equal_to as leq;
     pub use matchers::compared_to::greater_than;
+    pub use matchers::compared_to::greater_than as gt;
     pub use matchers::compared_to::greater_than_or_equal_to;
+    pub use matchers::compared_to::greater_than_or_equal_to as geq;
     pub use matchers::equal_to::equal_to;
+    pub use matchers::equal_to::equal_to as eq;
     pub use matchers::existing_path::existing_dir;
     pub use matchers::existing_path::existing_file;
     pub use matchers::existing_path::existing_path;
@@ -63,7 +68,9 @@ pub mod prelude {
     pub use matchers::anything::anything;
     pub use matchers::type_of::type_of;
     pub use matchers::all_of::all_of;
+    pub use matchers::all_of::all_of as all;
     pub use matchers::all_of::all_of as and;
     pub use matchers::any_of::any_of;
+    pub use matchers::any_of::any_of as any;
     pub use matchers::any_of::any_of as or;
 }

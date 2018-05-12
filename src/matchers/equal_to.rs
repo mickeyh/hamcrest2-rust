@@ -2,6 +2,7 @@
 //                Ben Longbons
 // Copyright 2015 Carl Lerche, Alex Crichton, Robin Gloster
 // Copyright 2016 Urban Hafner
+// Copyright 2018 Val Markovic
 //
 // Licensed under the Apache License, Version 2.0 <LICENSE-APACHE or
 // http://www.apache.org/licenses/LICENSE-2.0> or the MIT license
@@ -34,5 +35,5 @@ impl<T: PartialEq + fmt::Debug> Matcher<T> for EqualTo<T> {
 }
 
 pub fn equal_to<T: PartialEq + fmt::Debug>(expected: T) -> EqualTo<T> {
-    EqualTo { expected: expected }
+    EqualTo { expected }
 }

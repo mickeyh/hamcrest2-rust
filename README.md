@@ -32,41 +32,42 @@ use hamcrest2::prelude::*;
 
 If you want to be more selective make sure that you also import the `HamcrestMatcher` trait.
 
-### equal\_to
+### eq
 
 ``` rust
-assert_that!(1, is(equal_to(1)));
+assert_that!(1, eq(1));  // also equal_to()
+assert_that!(1, not(eq(2)));
 ```
 
 ### close\_to
 
 ``` rust
-assert_that!(1e-40f32, is(close_to(0.0, 0.01)));
-assert_that!(1e-40f32, is_not(close_to(0.0, 0.000001)));
+assert_that!(1e-40f32, close_to(0.0, 0.01));
+assert_that!(1e-40f32, not(close_to(0.0, 0.000001)));
 ```
 
 ### compared\_to
 
 ``` rust
-assert_that!(1, is(less_than(2)));
-assert_that!(1, is(less_than_or_equal_to(1)));
-assert_that!(2, is(greater_than(1)));
-assert_that!(2, is(greater_than_or_equal_to(2)));
+assert_that!(1, lt(2));   // also less_than()
+assert_that!(1, leq(1));  // also less_than_or_equal_to()
+assert_that!(2, gt(1));   // also greater_than()
+assert_that!(2, geq(2));  // also greater_than_or_equal_to()
 ```
 
 ### existing\_{file,path,dir}
 
 ``` rust
-assert_that!(&path, is(existing_path()));
-assert_that!(&path, is(existing_file()));
-assert_that!(&path, is_not(existing_dir()));
+assert_that!(&path, existing_path());
+assert_that!(&path, existing_file());
+assert_that!(&path, not(existing_dir()));
 ```
 
 ### none
 
 ``` rust
-assert_that!(None, is(none::<int>()));
-assert_that!(Some(1), is_not(none::<int>()));
+assert_that!(None, none::<int>());
+assert_that!(Some(1), not(none::<int>()));
 ```
 
 ### anything
@@ -99,14 +100,14 @@ assert_that!("abc", does_not(match_regex(r"\d")));
 ### type_of
 
 ``` rust
-assert_that!(123usize, is(type_of::<usize>()));
-assert_that!("test", is(type_of::<&str>()));
+assert_that!(123usize, type_of::<usize>());
+assert_that!("test", type_of::<&str>());
 ```
 
 ### all_of
 
 ``` rust
-assert_that!(4, all_of!(less_than(5), greater_than(3)));
+assert_that!(4, all_of!(lt(5), gt(3)));  // also all!()
 assert_that!(
     &vec![1, 2, 3],
     all_of!(contains(vec![1, 2]), not(contains(vec![4])))
@@ -116,7 +117,7 @@ assert_that!(
 ### any_of
 
 ``` rust
-assert_that!(4, any_of!(less_than(2), greater_than(3)));
+assert_that!(4, any_of!(less_than(2), greater_than(3)));  // also any!()
 assert_that!(
     &vec![1, 2, 3],
     any_of!(contains(vec![1, 2, 5]), not(contains(vec![4])))
