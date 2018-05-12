@@ -1,4 +1,5 @@
 // Copyright 2016 Urban Hafner
+// Copyright 2018 Val Markovic
 //
 // Licensed under the Apache License, Version 2.0 <LICENSE-APACHE or
 // http://www.apache.org/licenses/LICENSE-2.0> or the MIT license
@@ -6,18 +7,15 @@
 // option. This file may not be copied, modified, or distributed
 // except according to those terms.
 
-pub mod all_of;
-pub mod any_of;
-pub mod anything;
-pub mod boolean;
-pub mod close_to;
-pub mod compared_to;
-pub mod contains;
-pub mod equal_to;
-pub mod existing_path;
-pub mod is;
-pub mod none;
-pub mod of_len;
-pub mod regex;
-pub mod some;
-pub mod type_of;
+#[macro_use]
+extern crate hamcrest2;
+
+mod of_len {
+    use hamcrest2::prelude::*;
+
+    #[test]
+    fn vec_of_len() {
+        assert_that!(&vec![1, 2, 3], of_len(3));
+        assert_that!(&vec![1, 2, 3], is(of_len(3)));
+    }
+}

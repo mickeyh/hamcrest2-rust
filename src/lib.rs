@@ -57,6 +57,7 @@ pub mod prelude {
     pub use matchers::compared_to::less_than as lt;
     pub use matchers::compared_to::less_than_or_equal_to;
     pub use matchers::compared_to::less_than_or_equal_to as leq;
+    pub use matchers::contains::contains;
     pub use matchers::equal_to::equal_to;
     pub use matchers::equal_to::equal_to as eq;
     pub use matchers::existing_path::existing_dir;
@@ -67,10 +68,9 @@ pub mod prelude {
     pub use matchers::is::is_not as not;
     pub use matchers::is::is_not;
     pub use matchers::none::none;
+    pub use matchers::of_len::of_len;
     pub use matchers::regex::matches_regex as match_regex;
     pub use matchers::regex::matches_regex;
     pub use matchers::some::some;
     pub use matchers::type_of::type_of;
-    pub use matchers::vecs::contains;
-    pub use matchers::vecs::of_len;
 }

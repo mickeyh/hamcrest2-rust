@@ -1,4 +1,5 @@
 // Copyright 2016 Urban Hafner
+// Copyright 2018 Val Markovic
 //
 // Licensed under the Apache License, Version 2.0 <LICENSE-APACHE or
 // http://www.apache.org/licenses/LICENSE-2.0> or the MIT license
@@ -9,8 +10,7 @@
 #[macro_use]
 extern crate hamcrest2;
 
-mod vecs {
-
+mod contains {
     use hamcrest2::prelude::*;
 
     #[test]
@@ -46,11 +46,4 @@ mod vecs {
     fn it_unsuccessfully_does_not_contain_elements_in_order() {
         assert_that!(&vec![1, 2, 3], not(contains(vec![2, 3]).in_order()));
     }
-
-    #[test]
-    fn vec_of_len() {
-        assert_that!(&vec![1, 2, 3], of_len(3));
-        assert_that!(&vec![1, 2, 3], is(of_len(3)));
-    }
-
 }
