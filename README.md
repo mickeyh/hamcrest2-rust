@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/Valloric/hamcrest2-rust.svg?branch=master)](https://travis-ci.org/Valloric/hamcrest2-rust)
 
-# Hamcrest
+# Hamcrest2
 
 A port of [Hamcrest](http://hamcrest.org/) to [Rust](http://rust-lang.org).
 This is a fork of the original hamcrest-rust which is unmaintained.
