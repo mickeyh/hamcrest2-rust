@@ -1,14 +1,15 @@
 [project]
-name = "hamcrest"
+name = "hamcrest2"
 description = "A port of the Hamcrest testing library"
-version = "0.1.5"
+version = "0.1.6"
 keywords = ["unit", "matcher", "testing", "assertions", "tdd"]
 categories = ["development-tools", "development-tools::testing"]
 license = "MIT/Apache-2.0"
-repository = "https://github.com/ujh/hamcrest-rust"
-documentation = "https://docs.rs/hamcrest"
+repository = "https://github.com/Valloric/hamcrest2-rust"
+documentation = "https://docs.rs/hamcrest2"
 readme = "README.md"
 authors = [
+  "Val Markovic <val@markovic.io>",
   "Carl Lerche <me@carllerche.com>",
   "Alex Crichton <alex@alexcrichton.com>",
   "Ben Longbons <b.r.longbons@gmail.com>",

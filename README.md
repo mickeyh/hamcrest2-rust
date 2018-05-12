@@ -1,8 +1,9 @@
-[![Build Status](https://travis-ci.org/ujh/hamcrest-rust.svg?branch=master)](https://travis-ci.org/ujh/hamcrest-rust)
+[![Build Status](https://travis-ci.org/Valloric/hamcrest2-rust.svg?branch=master)](https://travis-ci.org/Valloric/hamcrest2-rust)
 
 # Hamcrest
 
 A port of [Hamcrest](http://hamcrest.org/) to [Rust](http://rust-lang.org).
+This is a fork of the original hamcrest-rust which is unmaintained.
 
 ## Installing
 
@@ -10,13 +11,13 @@ To use Hamcrest, add this to your `Cargo.toml`:
 
 ```
 [dev-dependencies]
-hamcrest = "*"
+hamcrest2 = "*"
 ```
 
 And this to your crate root:
 
 ``` rust
-#[cfg(test)] #[macro_use] extern crate hamcrest;
+#[cfg(test)] #[macro_use] extern crate hamcrest2;
 ```
 
 After a quick `cargo build`, you should be good to go!
@@ -26,7 +27,7 @@ After a quick `cargo build`, you should be good to go!
 Hamcrest supports a number of matchers. The easiest way is to just `use` them all like this:
 
 ``` rust
-use hamcrest::prelude::*;
+use hamcrest2::prelude::*;
 ```
 
 If you want to be more selective make sure that you also import the `HamcrestMatcher` trait.

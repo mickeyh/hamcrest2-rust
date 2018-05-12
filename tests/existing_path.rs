@@ -7,11 +7,11 @@
 // except according to those terms.
 
 #[macro_use]
-extern crate hamcrest;
+extern crate hamcrest2;
 
 mod existing_path {
 
-    pub use hamcrest::prelude::*;
+    pub use hamcrest2::prelude::*;
     pub use std::env;
     pub use std::path::Path;
     pub use std::path::PathBuf;

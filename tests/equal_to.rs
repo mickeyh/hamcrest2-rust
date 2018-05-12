@@ -7,11 +7,11 @@
 // except according to those terms.
 
 #[macro_use]
-extern crate hamcrest;
+extern crate hamcrest2;
 
 mod equal_to {
 
-    use hamcrest::prelude::*;
+    use hamcrest2::prelude::*;
 
     #[test]
     fn equality_of_ints() {

@@ -7,11 +7,11 @@
 // except according to those terms.
 
 #[macro_use]
-extern crate hamcrest;
+extern crate hamcrest2;
 
 mod regex {
 
-    use hamcrest::prelude::*;
+    use hamcrest2::prelude::*;
     #[test]
     fn successful_match() {
         assert_that!("123", matches_regex(r"^\d+$"));

@@ -7,11 +7,11 @@
 // except according to those terms.
 
 #[macro_use]
-extern crate hamcrest;
+extern crate hamcrest2;
 
 mod boolean {
     mod is_true {
-        use hamcrest::prelude::*;
+        use hamcrest2::prelude::*;
 
         #[test]
         fn matches_when_true() {
@@ -26,7 +26,7 @@ mod boolean {
     }
 
     mod is_false {
-        use hamcrest::prelude::*;
+        use hamcrest2::prelude::*;
 
         #[test]
         fn matches_when_false() {

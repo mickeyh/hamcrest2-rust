@@ -2,6 +2,7 @@
 //                Yehuda Katz
 // Copyright 2015 Carl Lerche, Oliver Mader
 // Copyright 2016 Urban Hafner
+// Copyright 2018 Val Markovic
 //
 // Licensed under the Apache License, Version 2.0 <LICENSE-APACHE or
 // http://www.apache.org/licenses/LICENSE-2.0> or the MIT license
@@ -9,7 +10,7 @@
 // option. This file may not be copied, modified, or distributed
 // except according to those terms.
 
-#![crate_name = "hamcrest"]
+#![crate_name = "hamcrest2"]
 #![crate_type = "lib"]
 
 extern crate num;
