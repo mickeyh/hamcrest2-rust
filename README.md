@@ -24,7 +24,7 @@ After a quick `cargo build`, you should be good to go!
 
 ## Usage
 
-Hamcrest supports a number of matchers. The easiest way is to just `use` them all like this:
+Hamcrest2 supports a number of matchers. The easiest way is to just `use` them all like this:
 
 ``` rust
 use hamcrest2::prelude::*;
@@ -32,18 +32,13 @@ use hamcrest2::prelude::*;
 
 If you want to be more selective make sure that you also import the `HamcrestMatcher` trait.
 
-### eq
+## General Matchers
+
+### eq, not
 
 ``` rust
 assert_that!(1, eq(1));  // also equal_to()
 assert_that!(1, not(eq(2)));
-```
-
-### close\_to
-
-``` rust
-assert_that!(1e-40f32, close_to(0.0, 0.01));
-assert_that!(1e-40f32, not(close_to(0.0, 0.000001)));
 ```
 
 ### compared\_to
@@ -55,6 +50,31 @@ assert_that!(2, gt(1));   // also greater_than()
 assert_that!(2, geq(2));  // also greater_than_or_equal_to()
 ```
 
+### type_of
+
+``` rust
+assert_that!(123usize, type_of::<usize>());
+assert_that!("test", type_of::<&str>());
+```
+
+### matches_regex
+
+``` rust
+assert_that!("1234", matches_regex(r"\d"));
+assert_that!("abc", does_not(match_regex(r"\d")));
+```
+
+## Numerical Matchers
+
+### close\_to
+
+``` rust
+assert_that!(1e-40f32, close_to(0.0, 0.01));
+assert_that!(1e-40f32, not(close_to(0.0, 0.000001)));
+```
+
+## Filesystem Matchers
+
 ### existing\_{file,path,dir}
 
 ``` rust
@@ -63,14 +83,16 @@ assert_that!(&path, existing_file());
 assert_that!(&path, not(existing_dir()));
 ```
 
-### none
+## Option and Result
+
+### has
 
 ``` rust
-let var: Option<i8> = None;
-assert_that!(var, none());
+let var: Option<i8> = Some(5);
+assert_that!(var, has(5));
 
-assert_that!(None, none::<int>());
-assert_that!(Some(1), not(none::<int>()));
+let var: Result<i8, String> = Ok(5);
+assert_that!(var, has(5));
 ```
 
 ### some
@@ -85,22 +107,17 @@ let var: Option<i8> = None;
 assert_that!(var, not(some()));
 ```
 
-## has
+### none
 
 ``` rust
-let var: Option<i8> = Some(5);
-assert_that!(var, has(5));
+let var: Option<i8> = None;
+assert_that!(var, none());
 
-let var: Result<i8, String> = Ok(5);
-assert_that!(var, has(5));
+assert_that!(None, none::<int>());
+assert_that!(Some(1), not(none::<int>()));
 ```
 
-### anything
-
-``` rust
-assert_that!(42, anything());
-assert_that!("test", is(anything()));
-```
+## Collection Matchers
 
 ### contains, contains\_exactly, contains\_in order
 
@@ -115,19 +132,7 @@ assert_that!(&vec!(1i, 2, 3), contains(vec!(1i, 2)).in_order());
 assert_that!(&vec!(1i, 2, 3), not(contains(vec!(1i, 3)).in_order()));
 ```
 
-### matches_regex
-
-``` rust
-assert_that!("1234", matches_regex(r"\d"));
-assert_that!("abc", does_not(match_regex(r"\d")));
-```
-
-### type_of
-
-``` rust
-assert_that!(123usize, type_of::<usize>());
-assert_that!("test", type_of::<&str>());
-```
+## Compound Matchers
 
 ### all_of
 
@@ -149,11 +154,20 @@ assert_that!(
 );
 ```
 
+## Misc Matchers
+
 ### is(bool)
 
 ``` rust
 assert_that!(true, is(true));
 assert_that!(false, is(false));
+```
+
+### anything
+
+``` rust
+assert_that!(42, anything());
+assert_that!("test", is(anything()));
 ```
 
 ## License
