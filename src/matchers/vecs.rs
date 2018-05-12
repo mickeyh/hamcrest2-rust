@@ -125,7 +125,7 @@ fn is_next_index(current_index: &usize, previous_index: &Option<usize>) -> bool 
 
 pub fn contains<T>(items: Vec<T>) -> Contains<T> {
     Contains {
-        items: items,
+        items,
         exactly: false,
         in_order: false,
     }
@@ -135,12 +135,12 @@ struct Pretty<'a, T: 'a>(&'a [T]);
 
 impl<'a, T: fmt::Debug> fmt::Display for Pretty<'a, T> {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        try!(write!(f, "["));
+        write!(f, "[")?;
         for (i, t) in self.0.iter().enumerate() {
             if i != 0 {
-                try!(write!(f, ", "));
+                write!(f, ", ")?;
             }
-            try!(write!(f, "{:?}", t));
+            write!(f, "{:?}", t)?;
         }
         write!(f, "]")
     }
