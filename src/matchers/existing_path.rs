@@ -10,8 +10,8 @@
 // except according to those terms.
 
 use std::fmt;
-use std::path::{Path, PathBuf};
 use std::fs;
+use std::path::{Path, PathBuf};
 
 use core::*;
 
@@ -31,18 +31,14 @@ impl ExistingPath {
     fn match_path_type(&self, actual: &Path) -> MatchResult {
         let metadata = fs::metadata(actual);
         match self.path_type {
-            PathType::File => {
-                expect(
-                    metadata.map(|m| m.is_file()).unwrap_or(false),
-                    format!("`{}` was not a file", actual.display()),
-                )
-            }
-            PathType::Dir => {
-                expect(
-                    metadata.map(|m| m.is_dir()).unwrap_or(false),
-                    format!("`{}` was not a dir", actual.display()),
-                )
-            }
+            PathType::File => expect(
+                metadata.map(|m| m.is_file()).unwrap_or(false),
+                format!("`{}` was not a file", actual.display()),
+            ),
+            PathType::Dir => expect(
+                metadata.map(|m| m.is_dir()).unwrap_or(false),
+                format!("`{}` was not a dir", actual.display()),
+            ),
             _ => success(),
         }
     }
@@ -70,13 +66,19 @@ impl<'a> Matcher<&'a Path> for ExistingPath {
 }
 
 pub fn existing_path() -> ExistingPath {
-    ExistingPath { path_type: PathType::AnyType }
+    ExistingPath {
+        path_type: PathType::AnyType,
+    }
 }
 
 pub fn existing_file() -> ExistingPath {
-    ExistingPath { path_type: PathType::File }
+    ExistingPath {
+        path_type: PathType::File,
+    }
 }
 
 pub fn existing_dir() -> ExistingPath {
-    ExistingPath { path_type: PathType::Dir }
+    ExistingPath {
+        path_type: PathType::Dir,
+    }
 }

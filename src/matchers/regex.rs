@@ -32,5 +32,7 @@ impl<'a> Matcher<&'a str> for MatchesRegex {
 }
 
 pub fn matches_regex(regex: &str) -> MatchesRegex {
-    MatchesRegex { regex: Regex::new(regex).unwrap() }
+    MatchesRegex {
+        regex: Regex::new(regex).unwrap(),
+    }
 }

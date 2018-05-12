@@ -34,5 +34,7 @@ impl<T: fmt::Debug> Matcher<Option<T>> for IsNone<T> {
 }
 
 pub fn none<T>() -> IsNone<T> {
-    IsNone { marker: PhantomData }
+    IsNone {
+        marker: PhantomData,
+    }
 }

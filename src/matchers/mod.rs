@@ -6,6 +6,10 @@
 // option. This file may not be copied, modified, or distributed
 // except according to those terms.
 
+pub mod all_of;
+pub mod any_of;
+pub mod anything;
+pub mod boolean;
 pub mod close_to;
 pub mod compared_to;
 pub mod equal_to;
@@ -13,9 +17,6 @@ pub mod existing_path;
 pub mod is;
 pub mod none;
 pub mod regex;
-pub mod vecs;
-pub mod anything;
+pub mod some;
 pub mod type_of;
-pub mod all_of;
-pub mod any_of;
-pub mod boolean;
+pub mod vecs;

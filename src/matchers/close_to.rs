@@ -10,7 +10,7 @@
 // except according to those terms.
 
 use num::{Float, Zero};
-use std::fmt::{self, Display, Debug, Formatter};
+use std::fmt::{self, Debug, Display, Formatter};
 
 use core::*;
 
