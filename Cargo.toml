@@ -1,6 +1,9 @@
-[project]
+[package]
 name = "hamcrest2"
-description = "A port of the Hamcrest testing library"
+description = """
+A port of the Hamcrest testing library. Fork of original
+hamcrest-rust (which is unmaintained) with extra matchers, better docs etc.
+"""
 version = "0.1.6"
 keywords = ["unit", "matcher", "testing", "assertions", "tdd"]
 categories = ["development-tools", "development-tools::testing"]
@@ -32,3 +35,6 @@ authors = [
 [dependencies]
 num = "0.1.*"
 regex = "1.*"
+
+[badges]
+travis-ci = { repository = "Valloric/hamcrest2" }

@@ -3,7 +3,8 @@
 # Hamcrest2
 
 A port of [Hamcrest](http://hamcrest.org/) to [Rust](http://rust-lang.org).
-This is a fork of the original hamcrest-rust which is unmaintained.
+Fork of original hamcrest-rust (which is unmaintained) with extra matchers,
+better docs etc.
 
 ## Installing
 
