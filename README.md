@@ -66,14 +66,29 @@ assert_that!(&path, not(existing_dir()));
 ### none
 
 ``` rust
+let var: Option<i8> = None;
+assert_that!(var, none());
+
 assert_that!(None, none::<int>());
 assert_that!(Some(1), not(none::<int>()));
+```
+
+### some
+
+``` rust
+let var: Option<i8> = Some(5);
+assert_that!(var, some());
+
+assert_that!(Some(1), some::<int>());
+
+let var2: Option<i8> = None;
+assert_that!(var2, not(some()));
 ```
 
 ### anything
 
 ``` rust
-assert_that!(42, is(anything()));
+assert_that!(42, anything());
 assert_that!("test", is(anything()));
 ```
 

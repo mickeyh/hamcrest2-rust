@@ -61,6 +61,7 @@ pub mod prelude {
     pub use matchers::is::is_not;
     pub use matchers::is::is;
     pub use matchers::none::none;
+    pub use matchers::some::some;
     pub use matchers::regex::matches_regex as match_regex;
     pub use matchers::regex::matches_regex;
     pub use matchers::vecs::contains;
