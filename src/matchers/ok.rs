@@ -18,7 +18,7 @@ pub struct IsOk<T, E> {
 
 impl<T, E> fmt::Display for IsOk<T, E> {
   fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-    write!(f, "ok")
+    write!(f, "Ok(_)")
   }
 }
 

@@ -18,7 +18,7 @@ pub struct IsErr<T, E> {
 
 impl<T, E> fmt::Display for IsErr<T, E> {
   fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-    write!(f, "err")
+    write!(f, "Err(_)")
   }
 }
 

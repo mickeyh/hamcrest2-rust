@@ -20,7 +20,7 @@ pub struct IsNone<T> {
 
 impl<T> fmt::Display for IsNone<T> {
   fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-    write!(f, "none")
+    write!(f, "None")
   }
 }
 
