@@ -18,7 +18,7 @@ pub mod path_exists;
 pub mod has;
 pub mod is;
 pub mod none;
-pub mod of_len;
+pub mod len;
 pub mod regex;
 pub mod some;
 pub mod type_of;

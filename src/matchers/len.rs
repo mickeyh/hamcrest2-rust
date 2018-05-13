@@ -36,6 +36,6 @@ impl<'a, T> Matcher<&'a Vec<T>> for OfLen {
     }
 }
 
-pub fn of_len(len: usize) -> OfLen {
+pub fn len(len: usize) -> OfLen {
     OfLen { len }
 }

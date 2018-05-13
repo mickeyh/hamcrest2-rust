@@ -134,6 +134,12 @@ assert_that!(&vec!(1, 2, 3), contains(vec!(1, 2)).in_order());
 assert_that!(&vec!(1, 2, 3), not(contains(vec!(1, 3)).in_order()));
 ```
 
+## len
+```rust
+assert_that!(&vec!(1, 2, 3), len(3));
+assert_that!(&vec!(1, 2, 3), not(len(4)));
+```
+
 ## Compound Matchers
 
 ### all

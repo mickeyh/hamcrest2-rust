@@ -10,12 +10,12 @@
 #[macro_use]
 extern crate hamcrest2;
 
-mod of_len {
+mod len {
     use hamcrest2::prelude::*;
 
     #[test]
-    fn vec_of_len() {
-        assert_that!(&vec![1, 2, 3], of_len(3));
-        assert_that!(&vec![1, 2, 3], is(of_len(3)));
+    fn vec_len() {
+        assert_that!(&vec![1, 2, 3], len(3));
+        assert_that!(&vec![1, 2, 3], is(len(3)));
     }
 }

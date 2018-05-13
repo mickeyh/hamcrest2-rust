@@ -144,6 +144,14 @@
 //! assert_that!(&vec!(1, 2, 3), not(contains(vec!(1, 3)).in_order()));
 //! ```
 //!
+//! ## len
+//! ```
+//! # #[macro_use] extern crate hamcrest2;
+//! # use hamcrest2::prelude::*;
+//! assert_that!(&vec!(1, 2, 3), len(3));
+//! assert_that!(&vec!(1, 2, 3), not(len(4)));
+//! ```
+//!
 //! ## Compound Matchers
 //!
 //! ### all
@@ -256,7 +264,9 @@ pub mod prelude {
     pub use matchers::is::is_not as not;
     pub use matchers::is::is_not;
     pub use matchers::none::none;
-    pub use matchers::of_len::of_len;
+    pub use matchers::len::len;
+    #[deprecated(since = "0.2.0", note = "Use len() instead")]
+    pub use matchers::len::len as of_len;
     pub use matchers::regex::matches_regex as match_regex;
     pub use matchers::regex::matches_regex;
     pub use matchers::some::some;
