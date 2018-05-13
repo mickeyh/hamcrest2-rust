@@ -64,7 +64,7 @@
 //!
 //! ## Numerical Matchers
 //!
-//! ### close\_to
+//! ### close_to
 //!
 //! ```
 //! # #[macro_use] extern crate hamcrest2;
@@ -129,7 +129,7 @@
 //!
 //! ## Collection Matchers
 //!
-//! ### contains, contains\_exactly, contains\_in order
+//! ### contains, contains_exactly, contains_in order
 //!
 //! ```
 //! # #[macro_use] extern crate hamcrest2;

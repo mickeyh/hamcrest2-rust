@@ -42,7 +42,7 @@ assert_that!(1, eq(1));  // also equal_to()
 assert_that!(1, not(eq(2)));
 ```
 
-### compared\_to
+### compared_to
 
 ``` rust
 assert_that!(1, lt(2));   // also less_than()
@@ -67,7 +67,7 @@ assert_that!("abc", does_not(match_regex(r"\d")));
 
 ## Numerical Matchers
 
-### close\_to
+### close_to
 
 ``` rust
 assert_that!(1e-40f32, close_to(0.0, 0.01));
@@ -121,7 +121,7 @@ assert_that!(Some(1), not(none::<u8>()));
 
 ## Collection Matchers
 
-### contains, contains\_exactly, contains\_in order
+### contains, contains_exactly, contains_in order
 
 ``` rust
 assert_that!(&vec!(1, 2, 3), contains(vec!(1, 2)));
