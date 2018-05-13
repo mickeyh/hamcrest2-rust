@@ -9,11 +9,11 @@
 use core::*;
 
 impl Matcher<bool> for bool {
-    fn matches(&self, actual: bool) -> MatchResult {
-        if actual == *self {
-            success()
-        } else {
-            Err(format!("was {:?}", actual))
-        }
+  fn matches(&self, actual: bool) -> MatchResult {
+    if actual == *self {
+      success()
+    } else {
+      Err(format!("was {:?}", actual))
     }
+  }
 }

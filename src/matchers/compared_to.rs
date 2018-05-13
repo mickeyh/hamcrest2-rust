@@ -15,71 +15,79 @@ use std::fmt;
 use core::*;
 
 enum CompareOperation {
-    LessOrEqual,
-    LessThan,
-    GreaterOrEqual,
-    GreaterThan,
+  LessOrEqual,
+  LessThan,
+  GreaterOrEqual,
+  GreaterThan,
 }
 
 pub struct ComparedTo<T> {
-    operation: CompareOperation,
-    right_hand_side: T,
+  operation: CompareOperation,
+  right_hand_side: T,
 }
 
 impl<T: fmt::Debug> fmt::Display for ComparedTo<T> {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        let operation = match self.operation {
-            CompareOperation::LessOrEqual => "<=",
-            CompareOperation::LessThan => "<",
-            CompareOperation::GreaterOrEqual => ">=",
-            CompareOperation::GreaterThan => ">",
-        };
+  fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+    let operation = match self.operation {
+      CompareOperation::LessOrEqual => "<=",
+      CompareOperation::LessThan => "<",
+      CompareOperation::GreaterOrEqual => ">=",
+      CompareOperation::GreaterThan => ">",
+    };
 
-        write!(f, "{} {:?}", operation, &self.right_hand_side)
-    }
+    write!(f, "{} {:?}", operation, &self.right_hand_side)
+  }
 }
 
 impl<T: PartialOrd + fmt::Debug> Matcher<T> for ComparedTo<T> {
-    fn matches(&self, actual: T) -> MatchResult {
-        let it_succeeded = match self.operation {
-            CompareOperation::LessOrEqual => actual <= self.right_hand_side,
-            CompareOperation::LessThan => actual < self.right_hand_side,
-            CompareOperation::GreaterOrEqual => actual >= self.right_hand_side,
-            CompareOperation::GreaterThan => actual > self.right_hand_side,
-        };
+  fn matches(&self, actual: T) -> MatchResult {
+    let it_succeeded = match self.operation {
+      CompareOperation::LessOrEqual => actual <= self.right_hand_side,
+      CompareOperation::LessThan => actual < self.right_hand_side,
+      CompareOperation::GreaterOrEqual => actual >= self.right_hand_side,
+      CompareOperation::GreaterThan => actual > self.right_hand_side,
+    };
 
-        if it_succeeded {
-            success()
-        } else {
-            Err(format!("was {:?}", actual))
-        }
+    if it_succeeded {
+      success()
+    } else {
+      Err(format!("was {:?}", actual))
     }
+  }
 }
 
-pub fn less_than<T: PartialOrd + fmt::Debug>(right_hand_side: T) -> ComparedTo<T> {
-    ComparedTo {
-        operation: CompareOperation::LessThan,
-        right_hand_side: right_hand_side,
-    }
+pub fn less_than<T: PartialOrd + fmt::Debug>(
+  right_hand_side: T,
+) -> ComparedTo<T> {
+  ComparedTo {
+    operation: CompareOperation::LessThan,
+    right_hand_side: right_hand_side,
+  }
 }
 
-pub fn less_than_or_equal_to<T: PartialOrd + fmt::Debug>(right_hand_side: T) -> ComparedTo<T> {
-    ComparedTo {
-        operation: CompareOperation::LessOrEqual,
-        right_hand_side: right_hand_side,
-    }
+pub fn less_than_or_equal_to<T: PartialOrd + fmt::Debug>(
+  right_hand_side: T,
+) -> ComparedTo<T> {
+  ComparedTo {
+    operation: CompareOperation::LessOrEqual,
+    right_hand_side: right_hand_side,
+  }
 }
 
-pub fn greater_than<T: PartialOrd + fmt::Debug>(right_hand_side: T) -> ComparedTo<T> {
-    ComparedTo {
-        operation: CompareOperation::GreaterThan,
-        right_hand_side: right_hand_side,
-    }
+pub fn greater_than<T: PartialOrd + fmt::Debug>(
+  right_hand_side: T,
+) -> ComparedTo<T> {
+  ComparedTo {
+    operation: CompareOperation::GreaterThan,
+    right_hand_side: right_hand_side,
+  }
 }
 
-pub fn greater_than_or_equal_to<T: PartialOrd + fmt::Debug>(right_hand_side: T) -> ComparedTo<T> {
-    ComparedTo {
-        operation: CompareOperation::GreaterOrEqual,
-        right_hand_side: right_hand_side,
-    }
+pub fn greater_than_or_equal_to<T: PartialOrd + fmt::Debug>(
+  right_hand_side: T,
+) -> ComparedTo<T> {
+  ComparedTo {
+    operation: CompareOperation::GreaterOrEqual,
+    right_hand_side: right_hand_side,
+  }
 }

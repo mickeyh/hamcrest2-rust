@@ -2,6 +2,7 @@
 // Copyright 2015 Carl Lerche, Oliver Mader, Alex Crichton, Graham Dennis,
 //                Tamir Duberstein, Robin Gloster
 // Copyright 2016 Urban Hafner
+// Copyright 2018 Val Markovic
 //
 // Licensed under the Apache License, Version 2.0 <LICENSE-APACHE or
 // http://www.apache.org/licenses/LICENSE-2.0> or the MIT license
@@ -20,44 +21,46 @@ use core::*;
 /// fallbacks for certain edge cases like very small numbers. The exact
 /// algorithm is described [here](http://floating-point-gui.de/errors/comparison/).
 pub struct CloseTo<T> {
-    expected: T,
-    epsilon: T,
+  expected: T,
+  epsilon: T,
 }
 
 impl<T: Debug> Display for CloseTo<T> {
-    fn fmt(&self, f: &mut Formatter) -> fmt::Result {
-        self.expected.fmt(f)
-    }
+  fn fmt(&self, f: &mut Formatter) -> fmt::Result {
+    self.expected.fmt(f)
+  }
 }
 
 impl<T: Float + Zero + Debug> Matcher<T> for CloseTo<T> {
-    fn matches(&self, actual: T) -> MatchResult {
-        let a = self.expected.abs();
-        let b = actual.abs();
+  fn matches(&self, actual: T) -> MatchResult {
+    let a = self.expected.abs();
+    let b = actual.abs();
 
-        let d = (a - b).abs();
+    let d = (a - b).abs();
 
-        let close =
+    let close =
             // shortcut, handles infinities
             a == b
             // a or b is zero or both are extremely close to it
             // relative error is less meaningful here
-            || ((a == Zero::zero() || b == Zero::zero() || d < Float::min_positive_value()) &&
+            || ((a == Zero::zero() ||
+                b == Zero::zero() ||
+                d < Float::min_positive_value()) &&
                 d < (self.epsilon * Float::min_positive_value()))
             // use relative error
             || d / (a + b).min(Float::max_value()) < self.epsilon;
 
-        if close {
-            success()
-        } else {
-            Err(format!("was {:?}", actual))
-        }
+    if close {
+      success()
+    } else {
+      Err(format!("was {:?}", actual))
     }
+  }
 }
 
 pub fn close_to<T>(expected: T, epsilon: T) -> CloseTo<T> {
-    CloseTo {
-        expected: expected,
-        epsilon: epsilon,
-    }
+  CloseTo {
+    expected,
+    epsilon,
+  }
 }

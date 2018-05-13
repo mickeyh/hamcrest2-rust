@@ -11,55 +11,55 @@ use std::fmt;
 use core::*;
 
 pub struct Has<T> {
-    value: T,
+  value: T,
 }
 
 impl<T> fmt::Display for Has<T>
 where
-    T: fmt::Debug,
+  T: fmt::Debug,
 {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "has {:?}", self.value)
-    }
+  fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+    write!(f, "has {:?}", self.value)
+  }
 }
 
 impl<T> Matcher<Option<T>> for Has<T>
 where
-    T: fmt::Debug + PartialEq,
+  T: fmt::Debug + PartialEq,
 {
-    fn matches(&self, actual: Option<T>) -> MatchResult {
-        match actual {
-            None => Err(format!("was None")),
-            Some(v) => {
-                if v == self.value {
-                    success()
-                } else {
-                    Err(format!("was Some({:?})", v))
-                }
-            }
+  fn matches(&self, actual: Option<T>) -> MatchResult {
+    match actual {
+      None => Err(format!("was None")),
+      Some(v) => {
+        if v == self.value {
+          success()
+        } else {
+          Err(format!("was Some({:?})", v))
         }
+      }
     }
+  }
 }
 
 impl<T, E> Matcher<Result<T, E>> for Has<T>
 where
-    T: fmt::Debug + PartialEq,
-    E: fmt::Debug,
+  T: fmt::Debug + PartialEq,
+  E: fmt::Debug,
 {
-    fn matches(&self, actual: Result<T, E>) -> MatchResult {
-        match actual {
-            Err(v) => Err(format!("was Err({:?})", v)),
-            Ok(v) => {
-                if v == self.value {
-                    success()
-                } else {
-                    Err(format!("was Ok({:?})", v))
-                }
-            }
+  fn matches(&self, actual: Result<T, E>) -> MatchResult {
+    match actual {
+      Err(v) => Err(format!("was Err({:?})", v)),
+      Ok(v) => {
+        if v == self.value {
+          success()
+        } else {
+          Err(format!("was Ok({:?})", v))
         }
+      }
     }
+  }
 }
 
 pub fn has<T>(value: T) -> Has<T> {
-    Has { value }
+  Has { value }
 }

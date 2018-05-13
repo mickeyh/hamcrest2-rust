@@ -10,19 +10,19 @@
 extern crate hamcrest2;
 
 mod equal_to {
-    use hamcrest2::prelude::*;
+  use hamcrest2::prelude::*;
 
-    #[test]
-    fn equality_of_ints() {
-        assert_that!(1, is(equal_to(1)));
-        assert_that!(1, eq(1));
-    }
+  #[test]
+  fn equality_of_ints() {
+    assert_that!(1, is(equal_to(1)));
+    assert_that!(1, eq(1));
+  }
 
-    #[test]
-    #[should_panic]
-    fn unsuccessful_match() {
-        assert_that!(2, is(equal_to(1)));
-        assert_that!(2, eq(1));
-    }
+  #[test]
+  #[should_panic]
+  fn unsuccessful_match() {
+    assert_that!(2, is(equal_to(1)));
+    assert_that!(2, eq(1));
+  }
 
 }

@@ -205,70 +205,70 @@ pub use prelude::*;
 
 #[macro_export]
 macro_rules! assert_that {
-    ($actual:expr, $matcher:expr) => {{
-        // The separate statement is necessary to keep the compiler happy.
-        let m = $matcher;
-        match m.matches($actual) {
-            Ok(_) => {}
-            Err(mismatch) => {
-                // The panic macro produces the correct file and line number
-                // when used in a macro like this, i.e. it's the line where
-                // the macro was originally written.
-                panic!("\nExpected: {}\n    but: {}", m, mismatch);
-            }
-        }
-    }};
+  ($actual:expr, $matcher:expr) => {{
+    // The separate statement is necessary to keep the compiler happy.
+    let m = $matcher;
+    match m.matches($actual) {
+      Ok(_) => {}
+      Err(mismatch) => {
+        // The panic macro produces the correct file and line number
+        // when used in a macro like this, i.e. it's the line where
+        // the macro was originally written.
+        panic!("\nExpected: {}\n    but: {}", m, mismatch);
+      }
+    }
+  }};
 }
 
 pub mod core;
 pub mod matchers;
 pub mod prelude {
-    pub use core::Matcher as HamcrestMatcher;
-    #[allow(deprecated)]
-    pub use core::assert_that;
-    pub use matchers::all::all;
-    #[deprecated(since = "0.2.0", note = "Use all() instead")]
-    pub use matchers::all::all as all_of;
-    #[deprecated(since = "0.2.0", note = "Use all() instead")]
-    pub use matchers::all::all as and;
-    pub use matchers::any::any;
-    #[deprecated(since = "0.2.0", note = "Use any() instead")]
-    pub use matchers::any::any as any_of;
-    #[deprecated(since = "0.2.0", note = "Use any() instead")]
-    pub use matchers::any::any as or;
-    pub use matchers::anything::anything;
-    pub use matchers::close_to::close_to;
-    pub use matchers::compared_to::greater_than;
-    pub use matchers::compared_to::greater_than as gt;
-    pub use matchers::compared_to::greater_than_or_equal_to;
-    pub use matchers::compared_to::greater_than_or_equal_to as geq;
-    pub use matchers::compared_to::less_than;
-    pub use matchers::compared_to::less_than as lt;
-    pub use matchers::compared_to::less_than_or_equal_to;
-    pub use matchers::compared_to::less_than_or_equal_to as leq;
-    pub use matchers::contains::contains;
-    pub use matchers::equal_to::equal_to;
-    pub use matchers::equal_to::equal_to as eq;
-    pub use matchers::path_exists::dir_exists;
-    #[deprecated(since = "0.2.0", note = "Use dir_exists() instead")]
-    pub use matchers::path_exists::dir_exists as existing_dir;
-    pub use matchers::path_exists::file_exists;
-    #[deprecated(since = "0.2.0", note = "Use file_exists() instead")]
-    pub use matchers::path_exists::file_exists as existing_file;
-    pub use matchers::path_exists::path_exists;
-    #[deprecated(since = "0.2.0", note = "Use path_exists() instead")]
-    pub use matchers::path_exists::path_exists as existing_path;
-    pub use matchers::has::has;
-    pub use matchers::is::is;
-    pub use matchers::is::is_not as does_not;
-    pub use matchers::is::is_not as not;
-    pub use matchers::is::is_not;
-    pub use matchers::none::none;
-    pub use matchers::len::len;
-    #[deprecated(since = "0.2.0", note = "Use len() instead")]
-    pub use matchers::len::len as of_len;
-    pub use matchers::regex::matches_regex as match_regex;
-    pub use matchers::regex::matches_regex;
-    pub use matchers::some::some;
-    pub use matchers::type_of::type_of;
+  pub use core::Matcher as HamcrestMatcher;
+  #[allow(deprecated)]
+  pub use core::assert_that;
+  pub use matchers::all::all;
+  #[deprecated(since = "0.2.0", note = "Use all() instead")]
+  pub use matchers::all::all as all_of;
+  #[deprecated(since = "0.2.0", note = "Use all() instead")]
+  pub use matchers::all::all as and;
+  pub use matchers::any::any;
+  #[deprecated(since = "0.2.0", note = "Use any() instead")]
+  pub use matchers::any::any as any_of;
+  #[deprecated(since = "0.2.0", note = "Use any() instead")]
+  pub use matchers::any::any as or;
+  pub use matchers::anything::anything;
+  pub use matchers::close_to::close_to;
+  pub use matchers::compared_to::greater_than;
+  pub use matchers::compared_to::greater_than as gt;
+  pub use matchers::compared_to::greater_than_or_equal_to;
+  pub use matchers::compared_to::greater_than_or_equal_to as geq;
+  pub use matchers::compared_to::less_than;
+  pub use matchers::compared_to::less_than as lt;
+  pub use matchers::compared_to::less_than_or_equal_to;
+  pub use matchers::compared_to::less_than_or_equal_to as leq;
+  pub use matchers::contains::contains;
+  pub use matchers::equal_to::equal_to;
+  pub use matchers::equal_to::equal_to as eq;
+  pub use matchers::has::has;
+  pub use matchers::is::is;
+  pub use matchers::is::is_not as does_not;
+  pub use matchers::is::is_not as not;
+  pub use matchers::is::is_not;
+  pub use matchers::len::len;
+  #[deprecated(since = "0.2.0", note = "Use len() instead")]
+  pub use matchers::len::len as of_len;
+  pub use matchers::none::none;
+  pub use matchers::path_exists::dir_exists;
+  #[deprecated(since = "0.2.0", note = "Use dir_exists() instead")]
+  pub use matchers::path_exists::dir_exists as existing_dir;
+  pub use matchers::path_exists::file_exists;
+  #[deprecated(since = "0.2.0", note = "Use file_exists() instead")]
+  pub use matchers::path_exists::file_exists as existing_file;
+  pub use matchers::path_exists::path_exists;
+  #[deprecated(since = "0.2.0", note = "Use path_exists() instead")]
+  pub use matchers::path_exists::path_exists as existing_path;
+  pub use matchers::regex::matches_regex as match_regex;
+  pub use matchers::regex::matches_regex;
+  pub use matchers::some::some;
+  pub use matchers::type_of::type_of;
 }

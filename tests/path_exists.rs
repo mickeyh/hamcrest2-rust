@@ -10,45 +10,45 @@
 extern crate hamcrest2;
 
 mod path_exists {
-    pub use hamcrest2::prelude::*;
-    pub use std::env;
-    pub use std::path::Path;
-    pub use std::path::PathBuf;
+  pub use hamcrest2::prelude::*;
+  pub use std::env;
+  pub use std::path::Path;
+  pub use std::path::PathBuf;
 
-    #[test]
-    fn deprecated_names() {
-        let path = path(env::var("TEST_EXISTS_FILE"), "./README.md");
-        assert_that!(&path, is(existing_path()));
-        assert_that!(&path, is(existing_file()));
-        assert_that!(&path, not(existing_dir()));
-    }
+  #[test]
+  fn deprecated_names() {
+    let path = path(env::var("TEST_EXISTS_FILE"), "./README.md");
+    assert_that!(&path, is(existing_path()));
+    assert_that!(&path, is(existing_file()));
+    assert_that!(&path, not(existing_dir()));
+  }
 
-    #[test]
-    fn a_file_exists() {
-        let path = path(env::var("TEST_EXISTS_FILE"), "./README.md");
-        assert_that!(&path, is(path_exists()));
-        assert_that!(&path, is(file_exists()));
-        assert_that!(&path, not(dir_exists()));
-    }
+  #[test]
+  fn a_file_exists() {
+    let path = path(env::var("TEST_EXISTS_FILE"), "./README.md");
+    assert_that!(&path, is(path_exists()));
+    assert_that!(&path, is(file_exists()));
+    assert_that!(&path, not(dir_exists()));
+  }
 
-    #[test]
-    fn a_dir_exists() {
-        let path = path(env::var("TEST_EXISTS_DIR"), "./target");
-        assert_that!(&path, is(path_exists()));
-        assert_that!(&path, is(dir_exists()));
-        assert_that!(&path, not(file_exists()));
-    }
+  #[test]
+  fn a_dir_exists() {
+    let path = path(env::var("TEST_EXISTS_DIR"), "./target");
+    assert_that!(&path, is(path_exists()));
+    assert_that!(&path, is(dir_exists()));
+    assert_that!(&path, not(file_exists()));
+  }
 
-    #[test]
-    fn a_nonpath_exists() {
-        let path = path(env::var("TEST_EXISTS_NONE"), "./zomg.txt");
-        assert_that!(&path, not(path_exists()));
-        assert_that!(&path, not(file_exists()));
-        assert_that!(&path, not(dir_exists()));
-    }
+  #[test]
+  fn a_nonpath_exists() {
+    let path = path(env::var("TEST_EXISTS_NONE"), "./zomg.txt");
+    assert_that!(&path, not(path_exists()));
+    assert_that!(&path, not(file_exists()));
+    assert_that!(&path, not(dir_exists()));
+  }
 
-    pub fn path(path: Result<String, env::VarError>, default: &str) -> PathBuf {
-        Path::new(&path.unwrap_or(default.to_string())).to_owned()
-    }
+  pub fn path(path: Result<String, env::VarError>, default: &str) -> PathBuf {
+    Path::new(&path.unwrap_or(default.to_string())).to_owned()
+  }
 
 }

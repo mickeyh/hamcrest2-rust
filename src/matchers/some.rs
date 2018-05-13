@@ -12,26 +12,26 @@ use std::marker::PhantomData;
 use core::*;
 
 pub struct IsSome<T> {
-    marker: PhantomData<T>,
+  marker: PhantomData<T>,
 }
 
 impl<T> fmt::Display for IsSome<T> {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "some")
-    }
+  fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+    write!(f, "some")
+  }
 }
 
 impl<T: fmt::Debug> Matcher<Option<T>> for IsSome<T> {
-    fn matches(&self, actual: Option<T>) -> MatchResult {
-        match actual {
-            None => Err(format!("was None")),
-            Some(_) => success(),
-        }
+  fn matches(&self, actual: Option<T>) -> MatchResult {
+    match actual {
+      None => Err(format!("was None")),
+      Some(_) => success(),
     }
+  }
 }
 
 pub fn some<T>() -> IsSome<T> {
-    IsSome {
-        marker: PhantomData,
-    }
+  IsSome {
+    marker: PhantomData,
+  }
 }

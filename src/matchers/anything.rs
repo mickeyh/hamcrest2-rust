@@ -12,18 +12,18 @@ use core::*;
 pub struct Anything;
 
 impl Display for Anything {
-    fn fmt(&self, f: &mut Formatter) -> fmt::Result {
-        write!(f, "anything")
-    }
+  fn fmt(&self, f: &mut Formatter) -> fmt::Result {
+    write!(f, "anything")
+  }
 }
 
 impl<T> Matcher<T> for Anything {
-    fn matches(&self, _: T) -> MatchResult {
-        success()
-    }
+  fn matches(&self, _: T) -> MatchResult {
+    success()
+  }
 }
 
 /// always matches, useful if you don't care what the object under test is
 pub fn anything() -> Anything {
-    Anything
+  Anything
 }

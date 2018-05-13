@@ -10,22 +10,22 @@
 extern crate hamcrest2;
 
 mod some {
-    use hamcrest2::prelude::*;
+  use hamcrest2::prelude::*;
 
-    #[test]
-    fn some_no_explicit_type() {
-        let var: Option<i8> = Some(5);
-        assert_that!(var, some());
-    }
+  #[test]
+  fn some_no_explicit_type() {
+    let var: Option<i8> = Some(5);
+    assert_that!(var, some());
+  }
 
-    #[test]
-    fn some_is_some() {
-        assert_that!(Some(5), some::<i8>());
-    }
+  #[test]
+  fn some_is_some() {
+    assert_that!(Some(5), some::<i8>());
+  }
 
-    #[test]
-    fn none_is_not_some() {
-        let var: Option<i8> = None;
-        assert_that!(var, not(some()));
-    }
+  #[test]
+  fn none_is_not_some() {
+    let var: Option<i8> = None;
+    assert_that!(var, not(some()));
+  }
 }

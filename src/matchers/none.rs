@@ -15,26 +15,26 @@ use std::marker::PhantomData;
 use core::*;
 
 pub struct IsNone<T> {
-    marker: PhantomData<T>,
+  marker: PhantomData<T>,
 }
 
 impl<T> fmt::Display for IsNone<T> {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "none")
-    }
+  fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+    write!(f, "none")
+  }
 }
 
 impl<T: fmt::Debug> Matcher<Option<T>> for IsNone<T> {
-    fn matches(&self, actual: Option<T>) -> MatchResult {
-        match actual {
-            Some(s) => Err(format!("was Some({:?})", s)),
-            None => success(),
-        }
+  fn matches(&self, actual: Option<T>) -> MatchResult {
+    match actual {
+      Some(s) => Err(format!("was Some({:?})", s)),
+      None => success(),
     }
+  }
 }
 
 pub fn none<T>() -> IsNone<T> {
-    IsNone {
-        marker: PhantomData,
-    }
+  IsNone {
+    marker: PhantomData,
+  }
 }

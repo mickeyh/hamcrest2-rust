@@ -12,27 +12,27 @@ use std::fmt;
 use core::*;
 
 pub struct MatchesRegex {
-    regex: Regex,
+  regex: Regex,
 }
 
 impl fmt::Display for MatchesRegex {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        self.regex.fmt(f)
-    }
+  fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+    self.regex.fmt(f)
+  }
 }
 
 impl<'a> Matcher<&'a str> for MatchesRegex {
-    fn matches(&self, actual: &'a str) -> MatchResult {
-        if self.regex.is_match(actual) {
-            success()
-        } else {
-            Err(format!("was {:?}", actual))
-        }
+  fn matches(&self, actual: &'a str) -> MatchResult {
+    if self.regex.is_match(actual) {
+      success()
+    } else {
+      Err(format!("was {:?}", actual))
     }
+  }
 }
 
 pub fn matches_regex(regex: &str) -> MatchesRegex {
-    MatchesRegex {
-        regex: Regex::new(regex).unwrap(),
-    }
+  MatchesRegex {
+    regex: Regex::new(regex).unwrap(),
+  }
 }

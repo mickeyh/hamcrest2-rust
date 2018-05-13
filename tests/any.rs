@@ -10,18 +10,18 @@
 extern crate hamcrest2;
 
 mod any {
-    use hamcrest2::prelude::*;
+  use hamcrest2::prelude::*;
 
-    #[test]
-    fn ints_less_than_and_greater_than() {
-        assert_that!(4, any!(less_than(2), greater_than(3)));
-    }
+  #[test]
+  fn ints_less_than_and_greater_than() {
+    assert_that!(4, any!(less_than(2), greater_than(3)));
+  }
 
-    #[test]
-    fn vec_contains() {
-        assert_that!(
-            &vec![1, 2, 3],
-            any!(contains(vec![1, 2, 5]), not(contains(vec![4])))
-        );
-    }
+  #[test]
+  fn vec_contains() {
+    assert_that!(
+      &vec![1, 2, 3],
+      any!(contains(vec![1, 2, 5]), not(contains(vec![4])))
+    );
+  }
 }

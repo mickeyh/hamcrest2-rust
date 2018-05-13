@@ -11,16 +11,16 @@ extern crate hamcrest2;
 
 mod anything {
 
-    use hamcrest2::prelude::*;
+  use hamcrest2::prelude::*;
 
-    #[test]
-    fn usize_is_anything() {
-        assert_that!(123, is(anything()));
-    }
+  #[test]
+  fn usize_is_anything() {
+    assert_that!(123, is(anything()));
+  }
 
-    #[test]
-    fn str_is_anything() {
-        assert_that!("test", is(anything()));
-    }
+  #[test]
+  fn str_is_anything() {
+    assert_that!("test", is(anything()));
+  }
 
 }

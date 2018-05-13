@@ -11,16 +11,16 @@ extern crate hamcrest2;
 
 mod type_of {
 
-    use hamcrest2::prelude::*;
+  use hamcrest2::prelude::*;
 
-    #[test]
-    fn usize_is_type_of_usize() {
-        assert_that!(123usize, is(type_of::<usize>()));
-    }
+  #[test]
+  fn usize_is_type_of_usize() {
+    assert_that!(123usize, is(type_of::<usize>()));
+  }
 
-    #[test]
-    fn str_is_type_of_str() {
-        assert_that!("test", is(type_of::<&str>()));
-    }
+  #[test]
+  fn str_is_type_of_str() {
+    assert_that!("test", is(type_of::<&str>()));
+  }
 
 }

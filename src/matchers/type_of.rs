@@ -13,23 +13,23 @@ use core::*;
 pub struct TypeOf(TypeId);
 
 impl Display for TypeOf {
-    fn fmt(&self, f: &mut Formatter) -> fmt::Result {
-        write!(f, "type of {:?}", self.0)
-    }
+  fn fmt(&self, f: &mut Formatter) -> fmt::Result {
+    write!(f, "type of {:?}", self.0)
+  }
 }
 
 impl<T: 'static> Matcher<T> for TypeOf {
-    fn matches(&self, _: T) -> MatchResult {
-        let type_id = TypeId::of::<T>();
+  fn matches(&self, _: T) -> MatchResult {
+    let type_id = TypeId::of::<T>();
 
-        if self.0 == type_id {
-            success()
-        } else {
-            Err(format!("type of {:?}", type_id))
-        }
+    if self.0 == type_id {
+      success()
+    } else {
+      Err(format!("type of {:?}", type_id))
     }
+  }
 }
 
 pub fn type_of<T: 'static>() -> TypeOf {
-    TypeOf(TypeId::of::<T>())
+  TypeOf(TypeId::of::<T>())
 }

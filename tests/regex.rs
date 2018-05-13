@@ -11,21 +11,21 @@ extern crate hamcrest2;
 
 mod regex {
 
-    use hamcrest2::prelude::*;
-    #[test]
-    fn successful_match() {
-        assert_that!("123", matches_regex(r"^\d+$"));
-    }
+  use hamcrest2::prelude::*;
+  #[test]
+  fn successful_match() {
+    assert_that!("123", matches_regex(r"^\d+$"));
+  }
 
-    #[test]
-    fn successful_negative_match() {
-        assert_that!("abc", does_not(matches_regex(r"\d")));
-    }
+  #[test]
+  fn successful_negative_match() {
+    assert_that!("abc", does_not(matches_regex(r"\d")));
+  }
 
-    #[test]
-    #[should_panic]
-    fn unsuccessful_match() {
-        assert_that!("abc", matches_regex(r"\d"));
-    }
+  #[test]
+  #[should_panic]
+  fn unsuccessful_match() {
+    assert_that!("abc", matches_regex(r"\d"));
+  }
 
 }

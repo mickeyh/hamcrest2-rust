@@ -17,25 +17,25 @@ use core::*;
 
 #[derive(Clone, Copy)]
 pub struct OfLen {
-    len: usize,
+  len: usize,
 }
 
 impl fmt::Display for OfLen {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "of len {}", self.len)
-    }
+  fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+    write!(f, "of len {}", self.len)
+  }
 }
 
 impl<'a, T> Matcher<&'a Vec<T>> for OfLen {
-    fn matches(&self, actual: &Vec<T>) -> MatchResult {
-        if self.len == actual.len() {
-            success()
-        } else {
-            Err(format!("was len {}", actual.len()))
-        }
+  fn matches(&self, actual: &Vec<T>) -> MatchResult {
+    if self.len == actual.len() {
+      success()
+    } else {
+      Err(format!("was len {}", actual.len()))
     }
+  }
 }
 
 pub fn len(len: usize) -> OfLen {
-    OfLen { len }
+  OfLen { len }
 }

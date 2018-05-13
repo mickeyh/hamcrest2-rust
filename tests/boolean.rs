@@ -10,33 +10,33 @@
 extern crate hamcrest2;
 
 mod boolean {
-    mod is_true {
-        use hamcrest2::prelude::*;
+  mod is_true {
+    use hamcrest2::prelude::*;
 
-        #[test]
-        fn matches_when_true() {
-            assert_that!(true, is(true));
-        }
-
-        #[test]
-        #[should_panic]
-        fn fails_when_false() {
-            assert_that!(false, is(true));
-        }
+    #[test]
+    fn matches_when_true() {
+      assert_that!(true, is(true));
     }
 
-    mod is_false {
-        use hamcrest2::prelude::*;
-
-        #[test]
-        fn matches_when_false() {
-            assert_that!(false, is(false));
-        }
-
-        #[test]
-        #[should_panic]
-        fn fails_when_true() {
-            assert_that!(true, is(false));
-        }
+    #[test]
+    #[should_panic]
+    fn fails_when_false() {
+      assert_that!(false, is(true));
     }
+  }
+
+  mod is_false {
+    use hamcrest2::prelude::*;
+
+    #[test]
+    fn matches_when_false() {
+      assert_that!(false, is(false));
+    }
+
+    #[test]
+    #[should_panic]
+    fn fails_when_true() {
+      assert_that!(true, is(false));
+    }
+  }
 }
