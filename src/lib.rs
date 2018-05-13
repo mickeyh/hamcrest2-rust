@@ -146,27 +146,27 @@
 //!
 //! ## Compound Matchers
 //!
-//! ### all_of
+//! ### all
 //!
 //! ```
 //! # #[macro_use] extern crate hamcrest2;
 //! # use hamcrest2::prelude::*;
-//! assert_that!(4, all_of!(lt(5), gt(3)));  // also all!()
+//! assert_that!(4, all!(lt(5), gt(3)));  // also and!()
 //! assert_that!(
 //!     &vec![1, 2, 3],
-//!     all_of!(contains(vec![1, 2]), not(contains(vec![4])))
+//!     all!(contains(vec![1, 2]), not(contains(vec![4])))
 //! );
 //! ```
 //!
-//! ### any_of
+//! ### any
 //!
 //! ```
 //! # #[macro_use] extern crate hamcrest2;
 //! # use hamcrest2::prelude::*;
-//! assert_that!(4, any_of!(less_than(2), greater_than(3)));  // also any!()
+//! assert_that!(4, any!(less_than(2), greater_than(3)));  // also or!()
 //! assert_that!(
 //!     &vec![1, 2, 3],
-//!     any_of!(contains(vec![1, 2, 5]), not(contains(vec![4])))
+//!     any!(contains(vec![1, 2, 5]), not(contains(vec![4])))
 //! );
 //! ```
 //!
@@ -218,12 +218,16 @@ pub mod prelude {
     pub use core::Matcher as HamcrestMatcher;
     #[allow(deprecated)]
     pub use core::assert_that;
-    pub use matchers::all_of::all_of;
-    pub use matchers::all_of::all_of as all;
-    pub use matchers::all_of::all_of as and;
-    pub use matchers::any_of::any_of;
-    pub use matchers::any_of::any_of as any;
-    pub use matchers::any_of::any_of as or;
+    pub use matchers::all_of::all;
+    #[deprecated(since = "0.2.0", note = "Use all() instead")]
+    pub use matchers::all_of::all as all_of;
+    #[deprecated(since = "0.2.0", note = "Use all() instead")]
+    pub use matchers::all_of::all as and;
+    pub use matchers::any_of::any;
+    #[deprecated(since = "0.2.0", note = "Use any() instead")]
+    pub use matchers::any_of::any as any_of;
+    #[deprecated(since = "0.2.0", note = "Use any() instead")]
+    pub use matchers::any_of::any as or;
     pub use matchers::anything::anything;
     pub use matchers::close_to::close_to;
     pub use matchers::compared_to::greater_than;

@@ -1,4 +1,5 @@
 // Copyright 2017 Flier Lu
+// Copyright 2018 Val Markovic
 //
 // Licensed under the Apache License, Version 2.0 <LICENSE-APACHE or
 // http://www.apache.org/licenses/LICENSE-2.0> or the MIT license
@@ -13,13 +14,19 @@ use core::*;
 
 pub struct AllOf<T, M>(M, PhantomData<T>);
 
-pub fn all_of<T, M>(matchers: M) -> AllOf<T, M> {
+pub fn all<T, M>(matchers: M) -> AllOf<T, M> {
     AllOf(matchers, PhantomData)
 }
 
 #[macro_export]
+macro_rules! all {
+    ($( $arg:expr ),*) => ($crate::matchers::all_of::all(($( $arg ),*)))
+}
+
+#[macro_export]
+#[deprecated(since = "0.2.0", note = "Use all!() instead")]
 macro_rules! all_of {
-    ($( $arg:expr ),*) => ($crate::matchers::all_of::all_of(($( $arg ),*)))
+    ($( $arg:expr ),*) => ($crate::matchers::all_of::all(($( $arg ),*)))
 }
 
 impl<T, M0, M1> Display for AllOf<T, (M0, M1)>

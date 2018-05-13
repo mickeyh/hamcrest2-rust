@@ -136,23 +136,23 @@ assert_that!(&vec!(1, 2, 3), not(contains(vec!(1, 3)).in_order()));
 
 ## Compound Matchers
 
-### all_of
+### all
 
 ``` rust
-assert_that!(4, all_of!(lt(5), gt(3)));  // also all!()
+assert_that!(4, all!(lt(5), gt(3)));  // also and!()
 assert_that!(
     &vec![1, 2, 3],
-    all_of!(contains(vec![1, 2]), not(contains(vec![4])))
+    all!(contains(vec![1, 2]), not(contains(vec![4])))
 );
 ```
 
-### any_of
+### any
 
 ``` rust
-assert_that!(4, any_of!(less_than(2), greater_than(3)));  // also any!()
+assert_that!(4, any!(less_than(2), greater_than(3)));  // also or!()
 assert_that!(
     &vec![1, 2, 3],
-    any_of!(contains(vec![1, 2, 5]), not(contains(vec![4])))
+    any!(contains(vec![1, 2, 5]), not(contains(vec![4])))
 );
 ```
 

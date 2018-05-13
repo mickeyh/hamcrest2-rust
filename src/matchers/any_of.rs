@@ -1,4 +1,5 @@
 // Copyright 2017 Flier Lu
+// Copyright 2018 Val Markovic
 //
 // Licensed under the Apache License, Version 2.0 <LICENSE-APACHE or
 // http://www.apache.org/licenses/LICENSE-2.0> or the MIT license
@@ -13,13 +14,19 @@ use core::*;
 
 pub struct AnyOf<T, M>(M, PhantomData<T>);
 
-pub fn any_of<T, M>(matchers: M) -> AnyOf<T, M> {
+pub fn any<T, M>(matchers: M) -> AnyOf<T, M> {
     AnyOf(matchers, PhantomData)
 }
 
 #[macro_export]
+macro_rules! any {
+    ($( $arg:expr ),*) => ($crate::matchers::any_of::any(($( $arg ),*)))
+}
+
+#[macro_export]
+#[deprecated(since = "0.2.0", note = "Use any!() instead")]
 macro_rules! any_of {
-    ($( $arg:expr ),*) => ($crate::matchers::any_of::any_of(($( $arg ),*)))
+    ($( $arg:expr ),*) => ($crate::matchers::any_of::any(($( $arg ),*)))
 }
 
 impl<T, M0, M1> Display for AnyOf<T, (M0, M1)>
