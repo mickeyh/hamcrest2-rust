@@ -1,3 +1,7 @@
+## 0.2.1 [☰](https://github.com/Valloric/hamcrest2-rust/compare/0.2.0...0.2.1)
+
+* Better message for expected output for `ok`, `err`, `some` and `none` matchers
+
 ## 0.2.0 [☰](https://github.com/Valloric/hamcrest2-rust/compare/0.1.6...0.2.0)
 
 * Created real crate docs with doctests
