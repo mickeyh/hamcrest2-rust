@@ -6,6 +6,12 @@ rust:
 os:
   - linux
   - osx
+before_script:
+  - rustup component add rustfmt-preview
+script:
+  - cargo fmt --all -- --write-mode=check
+  - cargo build
+  - cargo test
 cache: cargo
 matrix:
   allow_failures:
