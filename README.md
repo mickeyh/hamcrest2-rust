@@ -76,13 +76,13 @@ assert_that!(1e-40f32, not(close_to(0.0, 0.000001)));
 
 ## Filesystem Matchers
 
-### existing_file, existing_path, existing_dir
+### path_exists, file_exists, dir_exists
 
 ``` rust
 let path = Path::new("./README.md");
-assert_that!(path, existing_path());
-assert_that!(path, existing_file());
-assert_that!(path, not(existing_dir()));
+assert_that!(path, path_exists());
+assert_that!(path, file_exists());
+assert_that!(path, not(dir_exists()));
 ```
 
 ## Option and Result

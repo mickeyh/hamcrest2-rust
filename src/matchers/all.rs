@@ -12,24 +12,24 @@ use std::marker::PhantomData;
 
 use core::*;
 
-pub struct AllOf<T, M>(M, PhantomData<T>);
+pub struct All<T, M>(M, PhantomData<T>);
 
-pub fn all<T, M>(matchers: M) -> AllOf<T, M> {
-    AllOf(matchers, PhantomData)
+pub fn all<T, M>(matchers: M) -> All<T, M> {
+    All(matchers, PhantomData)
 }
 
 #[macro_export]
 macro_rules! all {
-    ($( $arg:expr ),*) => ($crate::matchers::all_of::all(($( $arg ),*)))
+    ($( $arg:expr ),*) => ($crate::matchers::all::all(($( $arg ),*)))
 }
 
 #[macro_export]
 #[deprecated(since = "0.2.0", note = "Use all!() instead")]
 macro_rules! all_of {
-    ($( $arg:expr ),*) => ($crate::matchers::all_of::all(($( $arg ),*)))
+    ($( $arg:expr ),*) => ($crate::matchers::all::all(($( $arg ),*)))
 }
 
-impl<T, M0, M1> Display for AllOf<T, (M0, M1)>
+impl<T, M0, M1> Display for All<T, (M0, M1)>
 where
     M0: Display,
     M1: Display,
@@ -41,7 +41,7 @@ where
     }
 }
 
-impl<T, M0, M1> Matcher<T> for AllOf<T, (M0, M1)>
+impl<T, M0, M1> Matcher<T> for All<T, (M0, M1)>
 where
     T: Clone,
     M0: Matcher<T>,
@@ -57,7 +57,7 @@ where
     }
 }
 
-impl<T, M0, M1, M2> Display for AllOf<T, (M0, M1, M2)>
+impl<T, M0, M1, M2> Display for All<T, (M0, M1, M2)>
 where
     M0: Display,
     M1: Display,
@@ -70,7 +70,7 @@ where
     }
 }
 
-impl<T, M0, M1, M2> Matcher<T> for AllOf<T, (M0, M1, M2)>
+impl<T, M0, M1, M2> Matcher<T> for All<T, (M0, M1, M2)>
 where
     T: Clone,
     M0: Matcher<T>,
@@ -88,7 +88,7 @@ where
     }
 }
 
-impl<T, M0, M1, M2, M3> Display for AllOf<T, (M0, M1, M2, M3)>
+impl<T, M0, M1, M2, M3> Display for All<T, (M0, M1, M2, M3)>
 where
     M0: Display,
     M1: Display,
@@ -102,7 +102,7 @@ where
     }
 }
 
-impl<T, M0, M1, M2, M3> Matcher<T> for AllOf<T, (M0, M1, M2, M3)>
+impl<T, M0, M1, M2, M3> Matcher<T> for All<T, (M0, M1, M2, M3)>
 where
     T: Clone,
     M0: Matcher<T>,
@@ -122,7 +122,7 @@ where
     }
 }
 
-impl<T, M0, M1, M2, M3, M4> Display for AllOf<T, (M0, M1, M2, M3, M4)>
+impl<T, M0, M1, M2, M3, M4> Display for All<T, (M0, M1, M2, M3, M4)>
 where
     M0: Display,
     M1: Display,
@@ -137,7 +137,7 @@ where
     }
 }
 
-impl<T, M0, M1, M2, M3, M4> Matcher<T> for AllOf<T, (M0, M1, M2, M3, M4)>
+impl<T, M0, M1, M2, M3, M4> Matcher<T> for All<T, (M0, M1, M2, M3, M4)>
 where
     T: Clone,
     M0: Matcher<T>,
@@ -159,7 +159,7 @@ where
     }
 }
 
-impl<T, M0, M1, M2, M3, M4, M5> Display for AllOf<T, (M0, M1, M2, M3, M4, M5)>
+impl<T, M0, M1, M2, M3, M4, M5> Display for All<T, (M0, M1, M2, M3, M4, M5)>
 where
     M0: Display,
     M1: Display,
@@ -175,7 +175,7 @@ where
     }
 }
 
-impl<T, M0, M1, M2, M3, M4, M5> Matcher<T> for AllOf<T, (M0, M1, M2, M3, M4, M5)>
+impl<T, M0, M1, M2, M3, M4, M5> Matcher<T> for All<T, (M0, M1, M2, M3, M4, M5)>
 where
     T: Clone,
     M0: Matcher<T>,

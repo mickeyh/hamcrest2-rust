@@ -23,11 +23,11 @@ pub enum PathType {
 }
 
 #[derive(Clone, Copy)]
-pub struct ExistingPath {
+pub struct PathExists {
     path_type: PathType,
 }
 
-impl ExistingPath {
+impl PathExists {
     fn match_path_type(&self, actual: &Path) -> MatchResult {
         let metadata = fs::metadata(actual);
         match self.path_type {
@@ -44,19 +44,19 @@ impl ExistingPath {
     }
 }
 
-impl fmt::Display for ExistingPath {
+impl fmt::Display for PathExists {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(f, "an existing file")
     }
 }
 
-impl<'a> Matcher<&'a PathBuf> for ExistingPath {
+impl<'a> Matcher<&'a PathBuf> for PathExists {
     fn matches(&self, actual: &'a PathBuf) -> MatchResult {
         self.matches(&**actual)
     }
 }
 
-impl<'a> Matcher<&'a Path> for ExistingPath {
+impl<'a> Matcher<&'a Path> for PathExists {
     fn matches(&self, actual: &Path) -> MatchResult {
         expect(
             fs::metadata(actual).is_ok(),
@@ -65,20 +65,20 @@ impl<'a> Matcher<&'a Path> for ExistingPath {
     }
 }
 
-pub fn existing_path() -> ExistingPath {
-    ExistingPath {
+pub fn path_exists() -> PathExists {
+    PathExists {
         path_type: PathType::AnyType,
     }
 }
 
-pub fn existing_file() -> ExistingPath {
-    ExistingPath {
+pub fn file_exists() -> PathExists {
+    PathExists {
         path_type: PathType::File,
     }
 }
 
-pub fn existing_dir() -> ExistingPath {
-    ExistingPath {
+pub fn dir_exists() -> PathExists {
+    PathExists {
         path_type: PathType::Dir,
     }
 }

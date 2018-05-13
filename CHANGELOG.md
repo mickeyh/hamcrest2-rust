@@ -1,3 +1,11 @@
+## 0.2.0 [☰](https://github.com/Valloric/hamcrest2-rust/compare/0.1.6...0.2.0)
+* Created real crate docs with doctests
+* `any_of!` is now `any!`
+* `all_of!` is now `all!`
+* `existing_path` is now `path_exists`
+* `existing_file` is now `file_exists`
+* `existing_dir` is now `dir_exists`
+
 ## 0.1.6 [☰](https://github.com/Valloric/hamcrest2-rust/compare/0.1.5...0.1.6)
 
 * Shorter names for common matchers:

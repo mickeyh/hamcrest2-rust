@@ -75,16 +75,16 @@
 //!
 //! ## Filesystem Matchers
 //!
-//! ### existing_file, existing_path, existing_dir
+//! ### path_exists, file_exists, dir_exists
 //!
 //! ```
 //! # #[macro_use] extern crate hamcrest2;
 //! # use hamcrest2::prelude::*;
 //! # pub use std::path::Path;
 //! let path = Path::new("./README.md");
-//! assert_that!(path, existing_path());
-//! assert_that!(path, existing_file());
-//! assert_that!(path, not(existing_dir()));
+//! assert_that!(path, path_exists());
+//! assert_that!(path, file_exists());
+//! assert_that!(path, not(dir_exists()));
 //! ```
 //!
 //! ## Option and Result
@@ -218,16 +218,16 @@ pub mod prelude {
     pub use core::Matcher as HamcrestMatcher;
     #[allow(deprecated)]
     pub use core::assert_that;
-    pub use matchers::all_of::all;
+    pub use matchers::all::all;
     #[deprecated(since = "0.2.0", note = "Use all() instead")]
-    pub use matchers::all_of::all as all_of;
+    pub use matchers::all::all as all_of;
     #[deprecated(since = "0.2.0", note = "Use all() instead")]
-    pub use matchers::all_of::all as and;
-    pub use matchers::any_of::any;
+    pub use matchers::all::all as and;
+    pub use matchers::any::any;
     #[deprecated(since = "0.2.0", note = "Use any() instead")]
-    pub use matchers::any_of::any as any_of;
+    pub use matchers::any::any as any_of;
     #[deprecated(since = "0.2.0", note = "Use any() instead")]
-    pub use matchers::any_of::any as or;
+    pub use matchers::any::any as or;
     pub use matchers::anything::anything;
     pub use matchers::close_to::close_to;
     pub use matchers::compared_to::greater_than;
@@ -241,9 +241,15 @@ pub mod prelude {
     pub use matchers::contains::contains;
     pub use matchers::equal_to::equal_to;
     pub use matchers::equal_to::equal_to as eq;
-    pub use matchers::existing_path::existing_dir;
-    pub use matchers::existing_path::existing_file;
-    pub use matchers::existing_path::existing_path;
+    pub use matchers::path_exists::dir_exists;
+    #[deprecated(since = "0.2.0", note = "Use dir_exists() instead")]
+    pub use matchers::path_exists::dir_exists as existing_dir;
+    pub use matchers::path_exists::file_exists;
+    #[deprecated(since = "0.2.0", note = "Use file_exists() instead")]
+    pub use matchers::path_exists::file_exists as existing_file;
+    pub use matchers::path_exists::path_exists;
+    #[deprecated(since = "0.2.0", note = "Use path_exists() instead")]
+    pub use matchers::path_exists::path_exists as existing_path;
     pub use matchers::has::has;
     pub use matchers::is::is;
     pub use matchers::is::is_not as does_not;

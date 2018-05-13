@@ -6,15 +6,15 @@
 // option. This file may not be copied, modified, or distributed
 // except according to those terms.
 
-pub mod all_of;
-pub mod any_of;
+pub mod all;
+pub mod any;
 pub mod anything;
 pub mod boolean;
 pub mod close_to;
 pub mod compared_to;
 pub mod contains;
 pub mod equal_to;
-pub mod existing_path;
+pub mod path_exists;
 pub mod has;
 pub mod is;
 pub mod none;

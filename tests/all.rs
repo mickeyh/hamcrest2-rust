@@ -9,20 +9,19 @@
 #[macro_use]
 extern crate hamcrest2;
 
-mod any_of {
-
+mod all {
     use hamcrest2::prelude::*;
 
     #[test]
     fn ints_less_than_and_greater_than() {
-        assert_that!(4, any_of!(less_than(2), greater_than(3)));
+        assert_that!(4, all!(less_than(5), greater_than(3)));
     }
 
     #[test]
     fn vec_contains() {
         assert_that!(
             &vec![1, 2, 3],
-            any_of!(contains(vec![1, 2, 5]), not(contains(vec![4])))
+            all!(contains(vec![1, 2]), not(contains(vec![4])))
         );
     }
 }
