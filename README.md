@@ -76,12 +76,13 @@ assert_that!(1e-40f32, not(close_to(0.0, 0.000001)));
 
 ## Filesystem Matchers
 
-### existing\_{file,path,dir}
+### existing_file, existing_path, existing_dir
 
 ``` rust
-assert_that!(&path, existing_path());
-assert_that!(&path, existing_file());
-assert_that!(&path, not(existing_dir()));
+let path = Path::new("./README.md");
+assert_that!(path, existing_path());
+assert_that!(path, existing_file());
+assert_that!(path, not(existing_dir()));
 ```
 
 ## Option and Result
@@ -102,7 +103,7 @@ assert_that!(var, has(5));
 let var: Option<i8> = Some(5);
 assert_that!(var, some());
 
-assert_that!(Some(1), some::<int>());
+assert_that!(Some(1), some::<u8>());
 
 let var: Option<i8> = None;
 assert_that!(var, not(some()));
@@ -114,8 +115,8 @@ assert_that!(var, not(some()));
 let var: Option<i8> = None;
 assert_that!(var, none());
 
-assert_that!(None, none::<int>());
-assert_that!(Some(1), not(none::<int>()));
+assert_that!(None, none::<u8>());
+assert_that!(Some(1), not(none::<u8>()));
 ```
 
 ## Collection Matchers
@@ -123,14 +124,14 @@ assert_that!(Some(1), not(none::<int>()));
 ### contains, contains\_exactly, contains\_in order
 
 ``` rust
-assert_that!(&vec!(1i, 2, 3), contains(vec!(1i, 2)));
-assert_that!(&vec!(1i, 2, 3), not(contains(vec!(4i))));
+assert_that!(&vec!(1, 2, 3), contains(vec!(1, 2)));
+assert_that!(&vec!(1, 2, 3), not(contains(vec!(4i))));
 
-assert_that!(&vec!(1i, 2, 3), contains(vec!(1i, 2, 3)).exactly());
-assert_that!(&vec!(1i, 2, 3), not(contains(vec!(1i, 2)).exactly()));
+assert_that!(&vec!(1, 2, 3), contains(vec!(1, 2, 3)).exactly());
+assert_that!(&vec!(1, 2, 3), not(contains(vec!(1, 2)).exactly()));
 
-assert_that!(&vec!(1i, 2, 3), contains(vec!(1i, 2)).in_order());
-assert_that!(&vec!(1i, 2, 3), not(contains(vec!(1i, 3)).in_order()));
+assert_that!(&vec!(1, 2, 3), contains(vec!(1, 2)).in_order());
+assert_that!(&vec!(1, 2, 3), not(contains(vec!(1, 3)).in_order()));
 ```
 
 ## Compound Matchers

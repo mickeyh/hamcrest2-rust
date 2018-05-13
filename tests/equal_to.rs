@@ -10,7 +10,6 @@
 extern crate hamcrest2;
 
 mod equal_to {
-
     use hamcrest2::prelude::*;
 
     #[test]

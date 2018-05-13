@@ -10,7 +10,6 @@
 extern crate hamcrest2;
 
 mod existing_path {
-
     pub use hamcrest2::prelude::*;
     pub use std::env;
     pub use std::path::Path;
