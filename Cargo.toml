@@ -37,4 +37,4 @@ num = "0.1.*"
 regex = "1.*"
 
 [badges]
-travis-ci = { repository = "Valloric/hamcrest2" }
+travis-ci = { repository = "Valloric/hamcrest2-rust" }
