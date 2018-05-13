@@ -1,4 +1,3 @@
-// Copyright 2016 Urban Hafner
 // Copyright 2018 Val Markovic
 //
 // Licensed under the Apache License, Version 2.0 <LICENSE-APACHE or
@@ -10,22 +9,23 @@
 #[macro_use]
 extern crate hamcrest2;
 
-mod none {
+mod err {
   use hamcrest2::prelude::*;
 
   #[test]
-  fn none_no_explicit_type() {
-    let var: Option<i8> = None;
-    assert_that!(var, none());
+  fn err_no_explicit_type() {
+    let var: Result<i8, ()> = Err(());
+    assert_that!(var, err());
   }
 
   #[test]
-  fn none_is_none() {
-    assert_that!(None, is(none::<i8>()));
+  fn err_is_err() {
+    assert_that!(Err(()), err::<i8, ()>());
   }
 
   #[test]
-  fn some_is_not_none() {
-    assert_that!(Some(1), is_not(none()));
+  fn ok_is_not_err() {
+    let var: Result<i8, ()> = Ok(5);
+    assert_that!(var, not(err()));
   }
 }

@@ -17,7 +17,7 @@ hamcrest2 = "*"
 
 And this to your crate root:
 
-``` rust
+```rust
 #[cfg(test)] #[macro_use] extern crate hamcrest2;
 ```
 
@@ -27,7 +27,7 @@ After a quick `cargo build`, you should be good to go!
 
 Hamcrest2 supports a number of matchers. The easiest way is to just `use` them all like this:
 
-``` rust
+```rust
 use hamcrest2::prelude::*;
 ```
 
@@ -37,14 +37,14 @@ If you want to be more selective make sure that you also import the `HamcrestMat
 
 ### eq, not
 
-``` rust
+```rust
 assert_that!(1, eq(1));  // also equal_to()
 assert_that!(1, not(eq(2)));
 ```
 
 ### compared_to
 
-``` rust
+```rust
 assert_that!(1, lt(2));   // also less_than()
 assert_that!(1, leq(1));  // also less_than_or_equal_to()
 assert_that!(2, gt(1));   // also greater_than()
@@ -53,14 +53,14 @@ assert_that!(2, geq(2));  // also greater_than_or_equal_to()
 
 ### type_of
 
-``` rust
+```rust
 assert_that!(123usize, type_of::<usize>());
 assert_that!("test", type_of::<&str>());
 ```
 
 ### matches_regex
 
-``` rust
+```rust
 assert_that!("1234", matches_regex(r"\d"));
 assert_that!("abc", does_not(match_regex(r"\d")));
 ```
@@ -69,7 +69,7 @@ assert_that!("abc", does_not(match_regex(r"\d")));
 
 ### close_to
 
-``` rust
+```rust
 assert_that!(1e-40f32, close_to(0.0, 0.01));
 assert_that!(1e-40f32, not(close_to(0.0, 0.000001)));
 ```
@@ -78,7 +78,7 @@ assert_that!(1e-40f32, not(close_to(0.0, 0.000001)));
 
 ### path_exists, file_exists, dir_exists
 
-``` rust
+```rust
 let path = Path::new("./README.md");
 assert_that!(path, path_exists());
 assert_that!(path, file_exists());
@@ -89,7 +89,7 @@ assert_that!(path, not(dir_exists()));
 
 ### has
 
-``` rust
+```rust
 let var: Option<i8> = Some(5);
 assert_that!(var, has(5));
 
@@ -97,9 +97,32 @@ let var: Result<i8, String> = Ok(5);
 assert_that!(var, has(5));
 ```
 
+### ok
+```rust
+let var: Result<i8, String> = Ok(5);
+assert_that!(var, ok());
+
+assert_that!(Ok(5), ok::<i8, String>());
+
+let var: Result<i8, String> = Err("bad!".to_string());
+assert_that!(var, not(ok()));
+```
+
+### err
+
+```rust
+let var: Result<i8, String> = Err("bad!".to_string());
+assert_that!(var, err());
+
+assert_that!(Err("bad!".to_string()), err::<i8, String>());
+
+let var: Result<i8, String> = Ok(5);
+assert_that!(var, not(err()));
+```
+
 ### some
 
-``` rust
+```rust
 let var: Option<i8> = Some(5);
 assert_that!(var, some());
 
@@ -111,7 +134,7 @@ assert_that!(var, not(some()));
 
 ### none
 
-``` rust
+```rust
 let var: Option<i8> = None;
 assert_that!(var, none());
 
@@ -123,7 +146,7 @@ assert_that!(Some(1), not(none::<u8>()));
 
 ### contains, contains_exactly, contains_in order
 
-``` rust
+```rust
 assert_that!(&vec!(1, 2, 3), contains(vec!(1, 2)));
 assert_that!(&vec!(1, 2, 3), not(contains(vec!(4i))));
 
@@ -144,7 +167,7 @@ assert_that!(&vec!(1, 2, 3), not(len(4)));
 
 ### all
 
-``` rust
+```rust
 assert_that!(4, all!(lt(5), gt(3)));  // also and!()
 assert_that!(
     &vec![1, 2, 3],
@@ -154,7 +177,7 @@ assert_that!(
 
 ### any
 
-``` rust
+```rust
 assert_that!(4, any!(less_than(2), greater_than(3)));  // also or!()
 assert_that!(
     &vec![1, 2, 3],
@@ -166,14 +189,14 @@ assert_that!(
 
 ### is(bool)
 
-``` rust
+```rust
 assert_that!(true, is(true));
 assert_that!(false, is(false));
 ```
 
 ### anything
 
-``` rust
+```rust
 assert_that!(42, anything());
 assert_that!("test", is(anything()));
 ```

@@ -100,6 +100,33 @@
 //! let var: Result<i8, String> = Ok(5);
 //! assert_that!(var, has(5));
 //! ```
+//! ### ok
+//!
+//! ```
+//! # #[macro_use] extern crate hamcrest2;
+//! # use hamcrest2::prelude::*;
+//! let var: Result<i8, String> = Ok(5);
+//! assert_that!(var, ok());
+//!
+//! assert_that!(Ok(5), ok::<i8, String>());
+//!
+//! let var: Result<i8, String> = Err("bad!".to_string());
+//! assert_that!(var, not(ok()));
+//! ```
+//!
+//! ### err
+//!
+//! ```
+//! # #[macro_use] extern crate hamcrest2;
+//! # use hamcrest2::prelude::*;
+//! let var: Result<i8, String> = Err("bad!".to_string());
+//! assert_that!(var, err());
+//!
+//! assert_that!(Err("bad!".to_string()), err::<i8, String>());
+//!
+//! let var: Result<i8, String> = Ok(5);
+//! assert_that!(var, not(err()));
+//! ```
 //!
 //! ### some
 //!
@@ -249,6 +276,7 @@ pub mod prelude {
   pub use matchers::contains::contains;
   pub use matchers::equal_to::equal_to;
   pub use matchers::equal_to::equal_to as eq;
+  pub use matchers::err::err;
   pub use matchers::has::has;
   pub use matchers::is::is;
   pub use matchers::is::is_not as does_not;
@@ -258,6 +286,7 @@ pub mod prelude {
   #[deprecated(since = "0.2.0", note = "Use len() instead")]
   pub use matchers::len::len as of_len;
   pub use matchers::none::none;
+  pub use matchers::ok::ok;
   pub use matchers::path_exists::dir_exists;
   #[deprecated(since = "0.2.0", note = "Use dir_exists() instead")]
   pub use matchers::path_exists::dir_exists as existing_dir;

@@ -1,5 +1,7 @@
 ## 0.2.0 [☰](https://github.com/Valloric/hamcrest2-rust/compare/0.1.6...0.2.0)
+
 * Created real crate docs with doctests
+* added `ok` and `err` matchers
 * `of_len!` is now `len!`
 * `any_of!` is now `any!`
 * `all_of!` is now `all!`
