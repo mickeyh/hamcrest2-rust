@@ -1,4 +1,10 @@
 language: rust
+sudo: required
+dist: trusty
+addons:
+  apt:
+    packages:
+      - libssl-dev
 rust:
   - stable
   - beta
@@ -6,14 +12,20 @@ rust:
 os:
   - linux
   - osx
+cache: cargo
+matrix:
+  allow_failures:
+    - rust: nightly
+  fast_finish: true
 before_script:
   - rustup component add rustfmt-preview
 script:
   - cargo fmt --all -- --write-mode=checkstyle
   - cargo build
   - cargo test
-cache: cargo
-matrix:
-  allow_failures:
-    - rust: nightly
-  fast_finish: true
+after_success: |
+  if [[ "$TRAVIS_RUST_VERSION" == stable ]]; then
+    bash <(curl https://raw.githubusercontent.com/xd009642/tarpaulin/master/travis-install.sh)
+    cargo tarpaulin --out Xml
+    bash <(curl -s https://codecov.io/bash)
+  fi
