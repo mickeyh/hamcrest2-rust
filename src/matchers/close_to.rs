@@ -59,8 +59,5 @@ impl<T: Float + Zero + Debug> Matcher<T> for CloseTo<T> {
 }
 
 pub fn close_to<T>(expected: T, epsilon: T) -> CloseTo<T> {
-  CloseTo {
-    expected,
-    epsilon,
-  }
+  CloseTo { expected, epsilon }
 }

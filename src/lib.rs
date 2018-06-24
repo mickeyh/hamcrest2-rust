@@ -250,9 +250,9 @@ macro_rules! assert_that {
 pub mod core;
 pub mod matchers;
 pub mod prelude {
-  pub use core::Matcher as HamcrestMatcher;
   #[allow(deprecated)]
   pub use core::assert_that;
+  pub use core::Matcher as HamcrestMatcher;
   pub use matchers::all::all;
   #[deprecated(since = "0.2.0", note = "Use all() instead")]
   pub use matchers::all::all as all_of;

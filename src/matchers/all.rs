@@ -133,11 +133,7 @@ where
   fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
     let (ref m0, ref m1, ref m2, ref m3, ref m4) = self.0;
 
-    write!(
-      f,
-      "all of ({}, {}, {}, {}, {})",
-      m0, m1, m2, m3, m4
-    )
+    write!(f, "all of ({}, {}, {}, {}, {})", m0, m1, m2, m3, m4)
   }
 }
 
@@ -175,11 +171,7 @@ where
   fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
     let (ref m0, ref m1, ref m2, ref m3, ref m4, ref m5) = self.0;
 
-    write!(
-      f,
-      "all of ({}, {}, {}, {}, {}, {})",
-      m0, m1, m2, m3, m4, m5
-    )
+    write!(f, "all of ({}, {}, {}, {}, {}, {})", m0, m1, m2, m3, m4, m5)
   }
 }
 

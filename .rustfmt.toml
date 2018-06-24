@@ -1,8 +1,11 @@
 max_width = 80
-wrap_comments = true
 tab_spaces = 2
-normalize_comments = true
 
+# All of these are currently unstable options; turn them on once they are
+# available
+
+#normalize_comments = true
+#wrap_comments = true
 # Unstable features, turn on once stable
 #unstable_features = true
 #merge_imports = true

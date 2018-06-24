@@ -21,14 +21,8 @@ mod contains {
 
   #[test]
   fn vec_contains_exactly() {
-    assert_that!(
-      &vec![1, 2, 3],
-      contains(vec![1, 2, 3]).exactly()
-    );
-    assert_that!(
-      &vec![1, 2, 3],
-      not(contains(vec![1, 2]).exactly())
-    );
+    assert_that!(&vec![1, 2, 3], contains(vec![1, 2, 3]).exactly());
+    assert_that!(&vec![1, 2, 3], not(contains(vec![1, 2]).exactly()));
   }
 
   #[test]
@@ -38,10 +32,7 @@ mod contains {
 
   #[test]
   fn it_does_not_contain_elements_in_order() {
-    assert_that!(
-      &vec![1, 2, 3],
-      not(contains(vec![1, 3]).in_order())
-    );
+    assert_that!(&vec![1, 2, 3], not(contains(vec![1, 3]).in_order()));
   }
 
   #[test]
@@ -53,9 +44,6 @@ mod contains {
   #[test]
   #[should_panic]
   fn it_unsuccessfully_does_not_contain_elements_in_order() {
-    assert_that!(
-      &vec![1, 2, 3],
-      not(contains(vec![2, 3]).in_order())
-    );
+    assert_that!(&vec![1, 2, 3], not(contains(vec![2, 3]).in_order()));
   }
 }
