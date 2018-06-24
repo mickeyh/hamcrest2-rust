@@ -179,6 +179,14 @@
 //! assert_that!(&vec!(1, 2, 3), not(len(4)));
 //! ```
 //!
+//! ## empty
+//! ```
+//! # #[macro_use] extern crate hamcrest2;
+//! # use hamcrest2::prelude::*;
+//! assert_that!(&Vec::<i32>::new(), empty());
+//! assert_that!(&vec![1, 2, 3], not(empty()));
+//! ```
+//!
 //! ## Compound Matchers
 //!
 //! ### all
@@ -247,6 +255,7 @@ macro_rules! assert_that {
   }};
 }
 
+mod utils;
 pub mod core;
 pub mod matchers;
 pub mod prelude {
@@ -282,6 +291,7 @@ pub mod prelude {
   pub use matchers::is::is_not as does_not;
   pub use matchers::is::is_not as not;
   pub use matchers::is::is_not;
+  pub use matchers::empty::empty;
   pub use matchers::len::len;
   #[deprecated(since = "0.2.0", note = "Use len() instead")]
   pub use matchers::len::len as of_len;

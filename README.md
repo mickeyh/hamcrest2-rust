@@ -163,6 +163,12 @@ assert_that!(&vec!(1, 2, 3), len(3));
 assert_that!(&vec!(1, 2, 3), not(len(4)));
 ```
 
+## empty
+```rust
+assert_that!(&Vec::<i32>::new(), empty());
+assert_that!(&vec![1, 2, 3], not(empty()));
+```
+
 ## Compound Matchers
 
 ### all

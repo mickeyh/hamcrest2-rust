@@ -15,6 +15,7 @@ use std::fmt;
 use std::vec::Vec;
 
 use core::*;
+use utils::*;
 
 #[derive(Clone)]
 pub struct Contains<T> {
@@ -112,20 +113,5 @@ pub fn contains<T>(items: Vec<T>) -> Contains<T> {
     items,
     exactly: false,
     in_order: false,
-  }
-}
-
-struct Pretty<'a, T: 'a>(&'a [T]);
-
-impl<'a, T: fmt::Debug> fmt::Display for Pretty<'a, T> {
-  fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-    write!(f, "[")?;
-    for (i, t) in self.0.iter().enumerate() {
-      if i != 0 {
-        write!(f, ", ")?;
-      }
-      write!(f, "{:?}", t)?;
-    }
-    write!(f, "]")
   }
 }
