@@ -255,9 +255,9 @@ macro_rules! assert_that {
   }};
 }
 
-mod utils;
 pub mod core;
 pub mod matchers;
+mod utils;
 pub mod prelude {
   #[allow(deprecated)]
   pub use core::assert_that;
@@ -283,6 +283,7 @@ pub mod prelude {
   pub use matchers::compared_to::less_than_or_equal_to;
   pub use matchers::compared_to::less_than_or_equal_to as leq;
   pub use matchers::contains::contains;
+  pub use matchers::empty::empty;
   pub use matchers::equal_to::equal_to;
   pub use matchers::equal_to::equal_to as eq;
   pub use matchers::err::err;
@@ -291,7 +292,6 @@ pub mod prelude {
   pub use matchers::is::is_not as does_not;
   pub use matchers::is::is_not as not;
   pub use matchers::is::is_not;
-  pub use matchers::empty::empty;
   pub use matchers::len::len;
   #[deprecated(since = "0.2.0", note = "Use len() instead")]
   pub use matchers::len::len as of_len;
