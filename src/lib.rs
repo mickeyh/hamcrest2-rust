@@ -156,7 +156,7 @@
 //!
 //! ## Collection Matchers
 //!
-//! ### contains, contains_exactly, contains_in order
+//! ### contains, contains exactly, contains in order
 //!
 //! ```
 //! # #[macro_use] extern crate hamcrest2;

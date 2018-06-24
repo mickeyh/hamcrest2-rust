@@ -144,7 +144,7 @@ assert_that!(Some(1), not(none::<u8>()));
 
 ## Collection Matchers
 
-### contains, contains_exactly, contains_in order
+### contains, contains exactly, contains in order
 
 ```rust
 assert_that!(&vec!(1, 2, 3), contains(vec!(1, 2)));
