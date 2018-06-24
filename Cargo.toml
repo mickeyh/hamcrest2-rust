@@ -4,8 +4,8 @@ description = """
 A port of the Hamcrest testing library. Fork of original
 hamcrest-rust (which is unmaintained) with extra matchers, better docs etc.
 """
-version = "0.2.1"
-keywords = ["unit", "matcher", "testing", "assertions", "tdd"]
+version = "0.2.2"
+keywords = ["unit", "matcher", "testing", "assertions", "tdd", "hamcrest"]
 categories = ["development-tools", "development-tools::testing"]
 license = "MIT/Apache-2.0"
 repository = "https://github.com/Valloric/hamcrest2-rust"
