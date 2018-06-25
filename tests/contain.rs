@@ -20,6 +20,13 @@ mod contains {
   }
 
   #[test]
+  fn slice_contains() {
+    let slice: &[i32] = &vec![1, 2, 3];
+    assert_that!(slice, contains(vec![1, 2]));
+    assert_that!(slice, not(contains(vec![4])));
+  }
+
+  #[test]
   fn vec_contains_exactly() {
     assert_that!(&vec![1, 2, 3], contains(vec![1, 2, 3]).exactly());
     assert_that!(&vec![1, 2, 3], not(contains(vec![1, 2]).exactly()));

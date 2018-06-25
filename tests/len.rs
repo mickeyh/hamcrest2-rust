@@ -18,4 +18,11 @@ mod len {
     assert_that!(&vec![1, 2, 3], len(3));
     assert_that!(&vec![1, 2, 3], is(len(3)));
   }
+
+  #[test]
+  fn slice_len() {
+    let slice: &[i32] = &vec![1, 2, 3];
+    assert_that!(slice, len(3));
+    assert_that!(slice, not(len(4)));
+  }
 }

@@ -20,8 +20,8 @@ impl fmt::Display for Empty {
   }
 }
 
-impl<'a, T: fmt::Debug> Matcher<&'a Vec<T>> for Empty {
-  fn matches(&self, actual: &Vec<T>) -> MatchResult {
+impl<'a, T: fmt::Debug> Matcher<&'a [T]> for Empty {
+  fn matches(&self, actual: &[T]) -> MatchResult {
     if actual.len() == 0 {
       success()
     } else {

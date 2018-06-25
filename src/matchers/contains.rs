@@ -46,11 +46,9 @@ impl<T: fmt::Debug> fmt::Display for Contains<T> {
   }
 }
 
-impl<'a, T: fmt::Debug + PartialEq + Clone> Matcher<&'a Vec<T>>
-  for Contains<T>
-{
-  fn matches(&self, actual: &Vec<T>) -> MatchResult {
-    let mut rem = actual.clone();
+impl<'a, T: fmt::Debug + PartialEq + Clone> Matcher<&'a [T]> for Contains<T> {
+  fn matches(&self, actual: &[T]) -> MatchResult {
+    let mut rem = actual.to_vec();
 
     for item in self.items.iter() {
       match rem.iter().position(|a| *item == *a) {
@@ -78,8 +76,8 @@ impl<'a, T: fmt::Debug + PartialEq + Clone> Matcher<&'a Vec<T>>
 }
 
 fn contains_in_order<T: fmt::Debug + PartialEq>(
-  actual: &Vec<T>,
-  items: &Vec<T>,
+  actual: &[T],
+  items: &[T],
 ) -> bool {
   let mut previous = None;
 

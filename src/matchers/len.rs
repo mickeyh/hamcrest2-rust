@@ -26,8 +26,8 @@ impl fmt::Display for OfLen {
   }
 }
 
-impl<'a, T> Matcher<&'a Vec<T>> for OfLen {
-  fn matches(&self, actual: &Vec<T>) -> MatchResult {
+impl<'a, T> Matcher<&'a [T]> for OfLen {
+  fn matches(&self, actual: &[T]) -> MatchResult {
     if self.len == actual.len() {
       success()
     } else {
