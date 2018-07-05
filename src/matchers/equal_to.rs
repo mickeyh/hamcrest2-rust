@@ -27,9 +27,10 @@ where
   }
 }
 
-impl<T> Matcher<T> for EqualTo<T>
+impl<T, U> Matcher<T> for EqualTo<U>
 where
-  T: PartialEq + fmt::Debug,
+  U: PartialEq<T> + fmt::Debug,
+  T: fmt::Debug
 {
   fn matches(&self, actual: T) -> MatchResult {
     if self.expected.eq(&actual) {
@@ -41,8 +42,6 @@ where
 }
 
 pub fn equal_to<T>(expected: T) -> EqualTo<T>
-where
-  T: PartialEq + fmt::Debug,
-{
+where T: fmt::Debug {
   EqualTo { expected }
 }

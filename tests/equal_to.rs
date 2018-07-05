@@ -12,6 +12,29 @@ extern crate hamcrest2;
 mod equal_to {
   use hamcrest2::prelude::*;
 
+  #[derive(Debug)]
+  pub struct A(u8);
+  #[derive(Debug)]
+  pub struct B(u8);
+
+  impl PartialEq<B> for A {
+    fn eq(&self, other: &B) -> bool {
+      self.0 == other.0
+    }
+  }
+
+  impl PartialEq<A> for B {
+    fn eq(&self, other: &A) -> bool {
+      self.0 == other.0
+    }
+  }
+
+  #[test]
+  fn equality_with_special_partial_eq() {
+    assert_that!(A(1), eq(B(1)));
+    assert_that!(B(1), eq(A(1)));
+  }
+
   #[test]
   fn equality_of_ints() {
     assert_that!(1, is(equal_to(1)));
@@ -24,5 +47,4 @@ mod equal_to {
     assert_that!(2, is(equal_to(1)));
     assert_that!(2, eq(1));
   }
-
 }
