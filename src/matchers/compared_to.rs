@@ -61,7 +61,7 @@ pub fn less_than<T: PartialOrd + fmt::Debug>(
 ) -> ComparedTo<T> {
   ComparedTo {
     operation: CompareOperation::LessThan,
-    right_hand_side: right_hand_side,
+    right_hand_side,
   }
 }
 
@@ -70,7 +70,7 @@ pub fn less_than_or_equal_to<T: PartialOrd + fmt::Debug>(
 ) -> ComparedTo<T> {
   ComparedTo {
     operation: CompareOperation::LessOrEqual,
-    right_hand_side: right_hand_side,
+    right_hand_side,
   }
 }
 
@@ -79,7 +79,7 @@ pub fn greater_than<T: PartialOrd + fmt::Debug>(
 ) -> ComparedTo<T> {
   ComparedTo {
     operation: CompareOperation::GreaterThan,
-    right_hand_side: right_hand_side,
+    right_hand_side,
   }
 }
 
@@ -88,6 +88,6 @@ pub fn greater_than_or_equal_to<T: PartialOrd + fmt::Debug>(
 ) -> ComparedTo<T> {
   ComparedTo {
     operation: CompareOperation::GreaterOrEqual,
-    right_hand_side: right_hand_side,
+    right_hand_side,
   }
 }

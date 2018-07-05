@@ -32,7 +32,7 @@ impl<T, M: Matcher<T>> Matcher<T> for Is<T, M> {
 
 pub fn is<T, M: Matcher<T>>(matcher: M) -> Is<T, M> {
   Is {
-    matcher: matcher,
+    matcher,
     marker: PhantomData,
   }
 }

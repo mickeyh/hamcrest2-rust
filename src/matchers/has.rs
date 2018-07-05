@@ -29,7 +29,7 @@ where
 {
   fn matches(&self, actual: Option<T>) -> MatchResult {
     match actual {
-      None => Err(format!("was None")),
+      None => Err("was None".to_string()),
       Some(v) => {
         if v == self.value {
           success()

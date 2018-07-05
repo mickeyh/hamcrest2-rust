@@ -50,7 +50,7 @@ impl<'a, T: fmt::Debug + PartialEq + Clone> Matcher<&'a [T]> for Contains<T> {
   fn matches(&self, actual: &[T]) -> MatchResult {
     let mut rem = actual.to_vec();
 
-    for item in self.items.iter() {
+    for item in &self.items {
       match rem.iter().position(|a| *item == *a) {
         Some(idx) => {
           rem.remove(idx);
@@ -84,7 +84,7 @@ fn contains_in_order<T: fmt::Debug + PartialEq>(
   for item in items.iter() {
     match actual.iter().position(|a| *item == *a) {
       Some(current) => {
-        if !is_next_index(&current, &previous) {
+        if !is_next_index(current, &previous) {
           return false;
         }
         previous = Some(current);
@@ -92,18 +92,14 @@ fn contains_in_order<T: fmt::Debug + PartialEq>(
       None => return false,
     }
   }
-
-  return true;
+  true
 }
 
-fn is_next_index(
-  current_index: &usize,
-  previous_index: &Option<usize>,
-) -> bool {
+fn is_next_index(current_index: usize, previous_index: &Option<usize>) -> bool {
   if let Some(index) = *previous_index {
-    return *current_index == index + 1;
+    return current_index == index + 1;
   }
-  return true;
+  true
 }
 
 pub fn contains<T>(items: Vec<T>) -> Contains<T> {

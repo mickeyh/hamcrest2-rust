@@ -28,7 +28,7 @@ pub struct PathExists {
 }
 
 impl PathExists {
-  fn match_path_type(&self, actual: &Path) -> MatchResult {
+  fn match_path_type(self, actual: &Path) -> MatchResult {
     let metadata = fs::metadata(actual);
     match self.path_type {
       PathType::File => expect(

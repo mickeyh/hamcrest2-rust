@@ -22,7 +22,7 @@ impl fmt::Display for Empty {
 
 impl<'a, T: fmt::Debug> Matcher<&'a [T]> for Empty {
   fn matches(&self, actual: &[T]) -> MatchResult {
-    if actual.len() == 0 {
+    if actual.is_empty() {
       success()
     } else {
       Err(format!("was {}", Pretty(&actual)))

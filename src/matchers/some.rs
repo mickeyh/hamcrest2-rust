@@ -24,7 +24,7 @@ impl<T> fmt::Display for IsSome<T> {
 impl<T: fmt::Debug> Matcher<Option<T>> for IsSome<T> {
   fn matches(&self, actual: Option<T>) -> MatchResult {
     match actual {
-      None => Err(format!("was None")),
+      None => Err("was None".to_string()),
       Some(_) => success(),
     }
   }
