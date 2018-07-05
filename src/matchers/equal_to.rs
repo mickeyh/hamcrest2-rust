@@ -41,9 +41,6 @@ where
   }
 }
 
-pub fn equal_to<T>(expected: T) -> EqualTo<T>
-where
-  T: fmt::Debug,
-{
+pub fn equal_to<T>(expected: T) -> EqualTo<T> {
   EqualTo { expected }
 }
