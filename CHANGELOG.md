@@ -1,3 +1,17 @@
+## 0.2.4 [☰](https://github.com/Valloric/hamcrest2-rust/compare/0.2.3...0.2.4)
+
+* `contains` matcher is now generic and supports both collection and single item
+  arguments; thus, both `contains(vec![5])` and `contains(5)` work
+* Almost all matchers now support reference arguments as well!
+
+## 0.2.3 [☰](https://github.com/Valloric/hamcrest2-rust/compare/0.2.2...0.2.3)
+
+* `contains`, `empty` and `len` matchers now work for slices, not just vectors
+
+## 0.2.2 [☰](https://github.com/Valloric/hamcrest2-rust/compare/0.2.1...0.2.2)
+
+* Added the `empty` matcher
+
 ## 0.2.1 [☰](https://github.com/Valloric/hamcrest2-rust/compare/0.2.0...0.2.1)
 
 * Better message for expected output for `ok`, `err`, `some` and `none` matchers
