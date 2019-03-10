@@ -18,12 +18,9 @@ matrix:
     - rust: nightly
   fast_finish: true
 before_script:
-  - rustup component add rustfmt-preview
+  - rustup component add rustfmt
 script:
-  # the 'checkstyle' approach works on stable, while the 'check' approach
-  # works on nightly and beta channel. Once the new approach reaches stable,
-  # we can fully switch to 'check'
-  - cargo fmt --all -- --write-mode=checkstyle || cargo fmt --all -- --check
+  - cargo fmt --all -- --check
   - cargo build
   - cargo test
 after_success: |
