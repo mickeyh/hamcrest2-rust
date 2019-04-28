@@ -1,3 +1,9 @@
+## 0.2.5 [☰](https://github.com/Valloric/hamcrest2-rust/compare/0.2.4...0.2.5)
+
+* The previous version introduced support for reference arguments and this 
+broke `equal_to` for slices. Thus, automatic ref argument support for 
+`equal_to` has been reverted.
+
 ## 0.2.4 [☰](https://github.com/Valloric/hamcrest2-rust/compare/0.2.3...0.2.4)
 
 * `contains` matcher is now generic and supports both collection and single item
