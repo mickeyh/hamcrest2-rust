@@ -22,5 +22,4 @@ mod anything {
   fn str_is_anything() {
     assert_that!("test", is(anything()));
   }
-
 }

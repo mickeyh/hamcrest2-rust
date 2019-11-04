@@ -22,5 +22,4 @@ mod type_of {
   fn str_is_type_of_str() {
     assert_that!("test", is(type_of::<&str>()));
   }
-
 }

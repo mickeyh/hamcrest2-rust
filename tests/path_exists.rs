@@ -50,5 +50,4 @@ mod path_exists {
   pub fn path(path: Result<String, env::VarError>, default: &str) -> PathBuf {
     Path::new(&path.unwrap_or(default.to_string())).to_owned()
   }
-
 }
