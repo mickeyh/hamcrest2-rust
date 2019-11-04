@@ -27,7 +27,7 @@ pub fn expect(predicate: bool, msg: String) -> MatchResult {
 #[deprecated(since = "0.1.2", note = "Use the assert_that! macro instead")]
 pub fn assert_that<T, U: Matcher<T>>(actual: T, matcher: &U) {
   match matcher.matches(actual) {
-    Ok(_) => return,
+    Ok(_) => {},
     Err(mismatch) => {
       panic!("\nExpected: {}\n    but: {}", matcher, mismatch);
     }
