@@ -4,7 +4,7 @@
 
 A port of [Hamcrest](http://hamcrest.org/) to [Rust](http://rust-lang.org).
 Fork of original hamcrest-rust (which is unmaintained) with extra matchers,
-better docs etc.
+better docs, support for Rust 2018 edition etc.
 
 ## Installing
 
@@ -13,12 +13,6 @@ To use Hamcrest, add this to your `Cargo.toml`:
 ```
 [dev-dependencies]
 hamcrest2 = "*"
-```
-
-And this to your crate root:
-
-```rust
-#[cfg(test)] #[macro_use] extern crate hamcrest2;
 ```
 
 After a quick `cargo build`, you should be good to go!

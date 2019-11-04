@@ -27,7 +27,6 @@
 //! ### eq, not
 //!
 //! ```
-//! # #[macro_use] extern crate hamcrest2;
 //! # use hamcrest2::prelude::*;
 //! assert_that!(1, eq(1));  // also equal_to()
 //! assert_that!(1, not(eq(2)));
@@ -36,7 +35,6 @@
 //! ### compared\_to
 //!
 //! ```
-//! # #[macro_use] extern crate hamcrest2;
 //! # use hamcrest2::prelude::*;
 //! assert_that!(1, lt(2));   // also less_than()
 //! assert_that!(1, leq(1));  // also less_than_or_equal_to()
@@ -47,7 +45,6 @@
 //! ### type_of
 //!
 //! ```
-//! # #[macro_use] extern crate hamcrest2;
 //! # use hamcrest2::prelude::*;
 //! assert_that!(123usize, type_of::<usize>());
 //! assert_that!("test", type_of::<&str>());
@@ -56,7 +53,6 @@
 //! ### matches_regex
 //!
 //! ```
-//! # #[macro_use] extern crate hamcrest2;
 //! # use hamcrest2::prelude::*;
 //! assert_that!("1234", matches_regex(r"\d"));
 //! assert_that!("abc", does_not(match_regex(r"\d")));
@@ -67,7 +63,6 @@
 //! ### close_to
 //!
 //! ```
-//! # #[macro_use] extern crate hamcrest2;
 //! # use hamcrest2::prelude::*;
 //! assert_that!(1e-40f32, close_to(0.0, 0.01));
 //! assert_that!(1e-40f32, not(close_to(0.0, 0.000001)));
@@ -78,7 +73,6 @@
 //! ### path_exists, file_exists, dir_exists
 //!
 //! ```
-//! # #[macro_use] extern crate hamcrest2;
 //! # use hamcrest2::prelude::*;
 //! # pub use std::path::Path;
 //! let path = Path::new("./README.md");
@@ -92,7 +86,6 @@
 //! ### has
 //!
 //! ```
-//! # #[macro_use] extern crate hamcrest2;
 //! # use hamcrest2::prelude::*;
 //! let var: Option<i8> = Some(5);
 //! assert_that!(var, has(5));
@@ -103,7 +96,6 @@
 //! ### ok
 //!
 //! ```
-//! # #[macro_use] extern crate hamcrest2;
 //! # use hamcrest2::prelude::*;
 //! let var: Result<i8, String> = Ok(5);
 //! assert_that!(var, ok());
@@ -117,7 +109,6 @@
 //! ### err
 //!
 //! ```
-//! # #[macro_use] extern crate hamcrest2;
 //! # use hamcrest2::prelude::*;
 //! let var: Result<i8, String> = Err("bad!".to_string());
 //! assert_that!(var, err());
@@ -131,7 +122,6 @@
 //! ### some
 //!
 //! ```
-//! # #[macro_use] extern crate hamcrest2;
 //! # use hamcrest2::prelude::*;
 //! let var: Option<i8> = Some(5);
 //! assert_that!(var, some());
@@ -145,7 +135,6 @@
 //! ### none
 //!
 //! ```
-//! # #[macro_use] extern crate hamcrest2;
 //! # use hamcrest2::prelude::*;
 //! let var: Option<i8> = None;
 //! assert_that!(var, none());
@@ -159,7 +148,6 @@
 //! ### contains, contains exactly, contains in order
 //!
 //! ```
-//! # #[macro_use] extern crate hamcrest2;
 //! # use hamcrest2::prelude::*;
 //! assert_that!(&vec!(1, 2, 3), contains(vec!(1, 2)));
 //! assert_that!(&vec!(1, 2, 3), not(contains(vec!(4))));
@@ -173,7 +161,6 @@
 //!
 //! ## len
 //! ```
-//! # #[macro_use] extern crate hamcrest2;
 //! # use hamcrest2::prelude::*;
 //! assert_that!(&vec!(1, 2, 3), len(3));
 //! assert_that!(&vec!(1, 2, 3), not(len(4)));
@@ -181,7 +168,6 @@
 //!
 //! ## empty
 //! ```
-//! # #[macro_use] extern crate hamcrest2;
 //! # use hamcrest2::prelude::*;
 //! assert_that!(&Vec::<i32>::new(), empty());
 //! assert_that!(&vec![1, 2, 3], not(empty()));
@@ -192,7 +178,6 @@
 //! ### all
 //!
 //! ```
-//! # #[macro_use] extern crate hamcrest2;
 //! # use hamcrest2::prelude::*;
 //! assert_that!(4, all!(lt(5), gt(3)));  // also and!()
 //! assert_that!(
@@ -204,7 +189,6 @@
 //! ### any
 //!
 //! ```
-//! # #[macro_use] extern crate hamcrest2;
 //! # use hamcrest2::prelude::*;
 //! assert_that!(4, any!(less_than(2), greater_than(3)));  // also or!()
 //! assert_that!(
@@ -218,7 +202,6 @@
 //! ### is(bool)
 //!
 //! ```
-//! # #[macro_use] extern crate hamcrest2;
 //! # use hamcrest2::prelude::*;
 //! assert_that!(true, is(true));
 //! assert_that!(false, is(false));
@@ -227,7 +210,6 @@
 //! ### anything
 //!
 //! ```
-//! # #[macro_use] extern crate hamcrest2;
 //! # use hamcrest2::prelude::*;
 //! assert_that!(42, anything());
 //! assert_that!("test", is(anything()));
@@ -259,19 +241,18 @@ pub mod core;
 pub mod matchers;
 mod utils;
 pub mod prelude {
+  pub use crate::assert_that;
   #[allow(deprecated)]
-  pub use crate::core::assert_that;
+  pub use crate::core::assert_that as assert_that_fn;
   pub use crate::core::Matcher as HamcrestMatcher;
-  pub use crate::matchers::all::all;
+  pub use crate::all;
   #[deprecated(since = "0.2.0", note = "Use all() instead")]
-  pub use crate::matchers::all::all as all_of;
-  #[deprecated(since = "0.2.0", note = "Use all() instead")]
-  pub use crate::matchers::all::all as and;
-  pub use crate::matchers::any::any;
+  pub use crate::all as all_of;
+  pub use crate::any;
   #[deprecated(since = "0.2.0", note = "Use any() instead")]
-  pub use crate::matchers::any::any as any_of;
+  pub use crate::any as any_of;
   #[deprecated(since = "0.2.0", note = "Use any() instead")]
-  pub use crate::matchers::any::any as or;
+  pub use crate::any as or;
   pub use crate::matchers::anything::anything;
   pub use crate::matchers::close_to::close_to;
   pub use crate::matchers::compared_to::greater_than;
