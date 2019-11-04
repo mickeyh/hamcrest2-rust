@@ -2,7 +2,8 @@
 name = "hamcrest2"
 description = """
 A port of the Hamcrest testing library. Fork of original
-hamcrest-rust (which is unmaintained) with extra matchers, better docs etc.
+hamcrest-rust (which is unmaintained) with extra matchers, better docs, Rust
+2018 support etc.
 """
 version = "0.3.0"
 keywords = ["unit", "matcher", "testing", "assertions", "tdd"]
