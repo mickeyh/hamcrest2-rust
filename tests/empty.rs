@@ -15,12 +15,12 @@ mod empty {
   #[test]
   fn vec_empty() {
     assert_that!(&Vec::<i32>::new(), empty());
-    assert_that!(&vec![1, 2, 3], not(empty()));
+    assert_that!(&[1, 2, 3], not(empty()));
   }
 
   #[test]
   fn slice_empty() {
-    let slice: &[i32] = &vec![1, 2, 3];
+    let slice: &[i32] = &[1, 2, 3];
     assert_that!(slice, not(empty()));
 
     let empty_slice: &[i32] = &Vec::<i32>::new();

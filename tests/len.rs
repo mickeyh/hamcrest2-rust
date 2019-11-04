@@ -15,13 +15,14 @@ mod len {
 
   #[test]
   fn vec_len() {
-    assert_that!(&vec![1, 2, 3], len(3));
-    assert_that!(&vec![1, 2, 3], is(len(3)));
+    let vec = vec![1, 2, 3];
+    assert_that!(&vec, len(3));
+    assert_that!(&vec, is(len(3)));
   }
 
   #[test]
   fn slice_len() {
-    let slice: &[i32] = &vec![1, 2, 3];
+    let slice: &[i32] = &[1, 2, 3];
     assert_that!(slice, len(3));
     assert_that!(slice, not(len(4)));
   }

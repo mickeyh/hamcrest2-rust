@@ -17,7 +17,7 @@ mod close_to {
   fn equality_of_floats() {
     assert_that!(1.0f64, close_to(1.0, 0.00001));
     assert_that!(1e-40f32, close_to(0.0, 0.01));
-    assert_that!(1e-40f32, not(close_to(0.0, 0.000001)));
+    assert_that!(1e-40f32, not(close_to(0.0, 0.000_001)));
     assert_that!(2.0, not(close_to(1.0f64, 0.00001)));
   }
 

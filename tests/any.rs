@@ -20,7 +20,7 @@ mod any {
   #[test]
   fn vec_contains() {
     assert_that!(
-      &vec![1, 2, 3],
+      &[1, 2, 3],
       any!(contains(vec![1, 2, 5]), not(contains(vec![4])))
     );
   }
