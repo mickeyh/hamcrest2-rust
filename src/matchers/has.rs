@@ -8,7 +8,7 @@
 
 use std::fmt;
 
-use core::*;
+use crate::core::*;
 
 pub struct Has<T> {
   value: T,

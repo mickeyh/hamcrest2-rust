@@ -13,7 +13,7 @@
 use num::{Float, Zero};
 use std::fmt::{self, Debug, Display, Formatter};
 
-use core::*;
+use crate::core::*;
 
 /// Compares two floating point values for equality.
 ///

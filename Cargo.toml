@@ -11,6 +11,7 @@ license = "MIT/Apache-2.0"
 repository = "https://github.com/Valloric/hamcrest2-rust"
 documentation = "https://docs.rs/hamcrest2"
 readme = "README.md"
+edition = "2018"
 authors = [
   "Val Markovic <val@markovic.io>",
   "Carl Lerche <me@carllerche.com>",

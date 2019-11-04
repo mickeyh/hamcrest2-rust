@@ -10,7 +10,7 @@ use regex::Regex;
 use std::borrow::Borrow;
 use std::fmt;
 
-use core::*;
+use crate::core::*;
 
 pub struct MatchesRegex {
   regex: Regex,

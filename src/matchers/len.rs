@@ -13,7 +13,7 @@
 
 use std::fmt;
 
-use core::*;
+use crate::core::*;
 
 #[derive(Clone, Copy)]
 pub struct OfLen {

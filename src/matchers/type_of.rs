@@ -8,7 +8,7 @@
 use std::any::TypeId;
 use std::fmt::{self, Display, Formatter};
 
-use core::*;
+use crate::core::*;
 
 pub struct TypeOf(TypeId);
 

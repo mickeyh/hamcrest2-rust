@@ -10,7 +10,7 @@ use std::borrow::Borrow;
 use std::fmt;
 use std::marker::PhantomData;
 
-use core::*;
+use crate::core::*;
 
 pub struct IsErr<T, E> {
   marker: PhantomData<T>,

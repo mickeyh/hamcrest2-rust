@@ -11,7 +11,7 @@
 use std::fmt;
 use std::marker::PhantomData;
 
-use core::*;
+use crate::core::*;
 
 pub struct Is<T, M> {
   matcher: M,

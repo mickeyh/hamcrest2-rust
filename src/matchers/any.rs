@@ -10,7 +10,7 @@
 use std::fmt::{self, Display};
 use std::marker::PhantomData;
 
-use core::*;
+use crate::core::*;
 
 pub struct Any<T, M>(M, PhantomData<T>);
 

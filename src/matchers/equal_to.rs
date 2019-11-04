@@ -12,7 +12,7 @@
 
 use std::fmt;
 
-use core::*;
+use crate::core::*;
 
 pub struct EqualTo<T> {
   expected: T,

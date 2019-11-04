@@ -236,7 +236,7 @@
 extern crate num;
 extern crate regex;
 
-pub use prelude::*;
+pub use crate::prelude::*;
 
 #[macro_export]
 macro_rules! assert_that {
@@ -260,54 +260,54 @@ pub mod matchers;
 mod utils;
 pub mod prelude {
   #[allow(deprecated)]
-  pub use core::assert_that;
-  pub use core::Matcher as HamcrestMatcher;
-  pub use matchers::all::all;
+  pub use crate::core::assert_that;
+  pub use crate::core::Matcher as HamcrestMatcher;
+  pub use crate::matchers::all::all;
   #[deprecated(since = "0.2.0", note = "Use all() instead")]
-  pub use matchers::all::all as all_of;
+  pub use crate::matchers::all::all as all_of;
   #[deprecated(since = "0.2.0", note = "Use all() instead")]
-  pub use matchers::all::all as and;
-  pub use matchers::any::any;
+  pub use crate::matchers::all::all as and;
+  pub use crate::matchers::any::any;
   #[deprecated(since = "0.2.0", note = "Use any() instead")]
-  pub use matchers::any::any as any_of;
+  pub use crate::matchers::any::any as any_of;
   #[deprecated(since = "0.2.0", note = "Use any() instead")]
-  pub use matchers::any::any as or;
-  pub use matchers::anything::anything;
-  pub use matchers::close_to::close_to;
-  pub use matchers::compared_to::greater_than;
-  pub use matchers::compared_to::greater_than as gt;
-  pub use matchers::compared_to::greater_than_or_equal_to;
-  pub use matchers::compared_to::greater_than_or_equal_to as geq;
-  pub use matchers::compared_to::less_than;
-  pub use matchers::compared_to::less_than as lt;
-  pub use matchers::compared_to::less_than_or_equal_to;
-  pub use matchers::compared_to::less_than_or_equal_to as leq;
-  pub use matchers::contains::contains;
-  pub use matchers::empty::empty;
-  pub use matchers::equal_to::equal_to;
-  pub use matchers::equal_to::equal_to as eq;
-  pub use matchers::err::err;
-  pub use matchers::has::has;
-  pub use matchers::is::is;
-  pub use matchers::is::is_not as does_not;
-  pub use matchers::is::is_not as not;
-  pub use matchers::is::is_not;
-  pub use matchers::len::len;
+  pub use crate::matchers::any::any as or;
+  pub use crate::matchers::anything::anything;
+  pub use crate::matchers::close_to::close_to;
+  pub use crate::matchers::compared_to::greater_than;
+  pub use crate::matchers::compared_to::greater_than as gt;
+  pub use crate::matchers::compared_to::greater_than_or_equal_to;
+  pub use crate::matchers::compared_to::greater_than_or_equal_to as geq;
+  pub use crate::matchers::compared_to::less_than;
+  pub use crate::matchers::compared_to::less_than as lt;
+  pub use crate::matchers::compared_to::less_than_or_equal_to;
+  pub use crate::matchers::compared_to::less_than_or_equal_to as leq;
+  pub use crate::matchers::contains::contains;
+  pub use crate::matchers::empty::empty;
+  pub use crate::matchers::equal_to::equal_to;
+  pub use crate::matchers::equal_to::equal_to as eq;
+  pub use crate::matchers::err::err;
+  pub use crate::matchers::has::has;
+  pub use crate::matchers::is::is;
+  pub use crate::matchers::is::is_not as does_not;
+  pub use crate::matchers::is::is_not as not;
+  pub use crate::matchers::is::is_not;
+  pub use crate::matchers::len::len;
   #[deprecated(since = "0.2.0", note = "Use len() instead")]
-  pub use matchers::len::len as of_len;
-  pub use matchers::none::none;
-  pub use matchers::ok::ok;
-  pub use matchers::path_exists::dir_exists;
+  pub use crate::matchers::len::len as of_len;
+  pub use crate::matchers::none::none;
+  pub use crate::matchers::ok::ok;
+  pub use crate::matchers::path_exists::dir_exists;
   #[deprecated(since = "0.2.0", note = "Use dir_exists() instead")]
-  pub use matchers::path_exists::dir_exists as existing_dir;
-  pub use matchers::path_exists::file_exists;
+  pub use crate::matchers::path_exists::dir_exists as existing_dir;
+  pub use crate::matchers::path_exists::file_exists;
   #[deprecated(since = "0.2.0", note = "Use file_exists() instead")]
-  pub use matchers::path_exists::file_exists as existing_file;
-  pub use matchers::path_exists::path_exists;
+  pub use crate::matchers::path_exists::file_exists as existing_file;
+  pub use crate::matchers::path_exists::path_exists;
   #[deprecated(since = "0.2.0", note = "Use path_exists() instead")]
-  pub use matchers::path_exists::path_exists as existing_path;
-  pub use matchers::regex::matches_regex as match_regex;
-  pub use matchers::regex::matches_regex;
-  pub use matchers::some::some;
-  pub use matchers::type_of::type_of;
+  pub use crate::matchers::path_exists::path_exists as existing_path;
+  pub use crate::matchers::regex::matches_regex as match_regex;
+  pub use crate::matchers::regex::matches_regex;
+  pub use crate::matchers::some::some;
+  pub use crate::matchers::type_of::type_of;
 }

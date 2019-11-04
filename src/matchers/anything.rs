@@ -7,7 +7,7 @@
 // except according to those terms.
 use std::fmt::{self, Display, Formatter};
 
-use core::*;
+use crate::core::*;
 
 pub struct Anything;
 

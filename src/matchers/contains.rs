@@ -14,8 +14,8 @@
 use std::fmt;
 use std::vec::Vec;
 
-use core::*;
-use utils::*;
+use crate::core::*;
+use crate::utils::*;
 
 #[derive(Clone)]
 pub struct Contains<T> {
