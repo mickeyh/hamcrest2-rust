@@ -51,7 +51,7 @@ where
     let (ref m0, ref m1) = self.0;
 
     m0.matches(actual.clone())?;
-    m1.matches(actual.clone())?;
+    m1.matches(actual)?;
 
     success()
   }
@@ -82,7 +82,7 @@ where
 
     m0.matches(actual.clone())?;
     m1.matches(actual.clone())?;
-    m2.matches(actual.clone())?;
+    m2.matches(actual)?;
 
     success()
   }
@@ -116,7 +116,7 @@ where
     m0.matches(actual.clone())?;
     m1.matches(actual.clone())?;
     m2.matches(actual.clone())?;
-    m3.matches(actual.clone())?;
+    m3.matches(actual)?;
 
     success()
   }
@@ -153,7 +153,7 @@ where
     m1.matches(actual.clone())?;
     m2.matches(actual.clone())?;
     m3.matches(actual.clone())?;
-    m4.matches(actual.clone())?;
+    m4.matches(actual)?;
 
     success()
   }
@@ -193,7 +193,7 @@ where
     m2.matches(actual.clone())?;
     m3.matches(actual.clone())?;
     m4.matches(actual.clone())?;
-    m5.matches(actual.clone())?;
+    m5.matches(actual)?;
 
     success()
   }
