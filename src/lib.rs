@@ -241,10 +241,6 @@ pub mod core;
 pub mod matchers;
 mod utils;
 pub mod prelude {
-  pub use crate::assert_that;
-  #[allow(deprecated)]
-  pub use crate::core::assert_that as assert_that_fn;
-  pub use crate::core::Matcher as HamcrestMatcher;
   pub use crate::all;
   #[deprecated(since = "0.2.0", note = "Use all() instead")]
   pub use crate::all as all_of;
@@ -253,6 +249,10 @@ pub mod prelude {
   pub use crate::any as any_of;
   #[deprecated(since = "0.2.0", note = "Use any() instead")]
   pub use crate::any as or;
+  pub use crate::assert_that;
+  #[allow(deprecated)]
+  pub use crate::core::assert_that as assert_that_fn;
+  pub use crate::core::Matcher as HamcrestMatcher;
   pub use crate::matchers::anything::anything;
   pub use crate::matchers::close_to::close_to;
   pub use crate::matchers::compared_to::greater_than;
