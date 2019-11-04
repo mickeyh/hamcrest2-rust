@@ -1,7 +1,12 @@
+## 0.3.0 [☰](https://github.com/Valloric/hamcrest2-rust/compare/0.2.6...0.3.0)
+* Full support for Rust 2018 edition. No more `#[macro_use]` or deprecation
+  warnings for modern idioms. This _might_ have broken some usage of APIs that
+  have been deprecated for **many** months now, thus bumping to 0.3.0. #10
+
 ## 0.2.6 [☰](https://github.com/Valloric/hamcrest2-rust/compare/0.2.4...0.2.6)
 
-* The previous version introduced support for reference arguments and this 
-broke `equal_to` for slices. Thus, automatic ref argument support for 
+* The previous version introduced support for reference arguments and this
+broke `equal_to` for slices. Thus, automatic ref argument support for
 `equal_to` has been reverted.
 
 ## 0.2.4 [☰](https://github.com/Valloric/hamcrest2-rust/compare/0.2.3...0.2.4)
